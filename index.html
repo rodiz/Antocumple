@@ -1709,9 +1709,6 @@ body::before{
     <section class="slide cover" data-screen-label="01 Portada">
       <div class="cover-bg">
         <div class="cover-photo-wrap"><img src="fotos/cover.jpeg" alt="Antonia" /></div>
-        <div class="volleyball vb-1"></div>
-        <div class="volleyball vb-2"></div>
-        <div class="volleyball vb-3"></div>
         <div class="motion-line ml-1"></div>
         <div class="motion-line ml-2"></div>
         <div class="motion-line ml-3"></div>
@@ -1982,7 +1979,7 @@ body::before{
 const CONFIG = {
   "AIRTABLE_TOKEN": "pat78cZHxRPkOPQRm.c61c81c22b5f877082b6439859330c7271ea34886afc501e9df12a2371ce3788",
   "AIRTABLE_BASE": "appLJabKkEut8jj3V",
-  "AIRTABLE_TABLE": "FiestaAnto15",
+  "AIRTABLE_TABLE": "tblRtB1JfVcO0wTN6",
   "AIRTABLE_TABLE_FOTOS": "tblRRGfqBOKBGFvop",
   "IMGBB_KEY": "59370048f8271d989f355dbe0c2b311f",
   "PARTY_DATE": "2026-08-15T20:00:00"
@@ -2451,8 +2448,7 @@ async function saveToAirtable(nombre, fotoUrl) {
       body: JSON.stringify({
         fields: {
           'Nombre': nombre,
-          'FotoURL': fotoUrl,
-          'Timestamp': new Date().toISOString()
+          'FotoURL': fotoUrl
         }
       })
     }
