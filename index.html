@@ -1981,13 +1981,6 @@ body::before{
   </div>
 </div>
 
-<a href="#admin" class="admin-link" id="admin-link">— Ver confirmados —</a>
-<div class="admin" id="admin">
-  <button class="admin-close" id="admin-close">×</button>
-  <h2>Lista de confirmadas</h2>
-  <div class="sub" id="admin-count">— 0 confirmadas —</div>
-  <div class="confirmados" id="confirmados"></div>
-</div>
 
 <script>
 /* ====== Splash screen ====== */
@@ -2490,33 +2483,6 @@ function fireConfetti(){
   }
 }
 
-/* ====== Admin (lista de confirmados) ====== */
-const adminLink = document.getElementById('admin-link');
-const adminEl = document.getElementById('admin');
-const adminClose = document.getElementById('admin-close');
-
-function renderAdmin(){
-  const all = JSON.parse(localStorage.getItem('xv_rsvps') || '[]');
-  document.getElementById('admin-count').textContent = `— ${all.length} respuesta${all.length===1?'':'s'} —`;
-  const cont = document.getElementById('confirmados');
-  if(all.length === 0){
-    cont.innerHTML = '<div class="empty-state">aún no hay confirmadas<br/>vuelve más tarde ✦</div>';
-    return;
-  }
-  cont.innerHTML = all.slice().reverse().map(r => `
-    <div class="confirmado">
-      <div class="name">${r.nombre || '—'} ${r.asistencia==='si'?'♡':'· no viene'}</div>
-      <div class="meta">${r.telefono||''} ${r.cancion?' · '+r.cancion:''}</div>
-      ${r.mensaje?`<div class="msg">"${r.mensaje}"</div>`:''}
-    </div>
-  `).join('');
-}
-adminLink.addEventListener('click', e => {
-  e.preventDefault();
-  renderAdmin();
-  adminEl.classList.add('show');
-});
-adminClose.addEventListener('click', () => adminEl.classList.remove('show'));
 
 /* ====== Tweaks (host protocol) ====== */
 const tweakFab = document.getElementById('tweak-fab');
