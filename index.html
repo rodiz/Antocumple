@@ -2538,24 +2538,31 @@ form.addEventListener('submit', async e => {
   // Try Airtable if configured
   if(CONFIG.AIRTABLE_TOKEN && CONFIG.AIRTABLE_BASE){
     try {
-      await fetch(`https://api.airtable.com/v0/${CONFIG.AIRTABLE_BASE}/${encodeURIComponent(CONFIG.AIRTABLE_TABLE)}`, {
+      const url = `https://api.airtable.com/v0/${CONFIG.AIRTABLE_BASE}/${CONFIG.AIRTABLE_TABLE}`;
+      const body = JSON.stringify({
+        fields: {
+          'Nombre': data.nombre,
+          'Telefono': data.telefono,
+          'Asistencia': data.asistencia === 'si' ? 'Sí' : 'No',
+          'Cancion': data.cancion,
+          'Mensaje': data.mensaje
+        }
+      });
+      console.log('[RSVP] Enviando a:', url);
+      console.log('[RSVP] Body:', body);
+      const res = await fetch(url, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${CONFIG.AIRTABLE_TOKEN}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          fields: {
-            'Nombre': data.nombre,
-            'Telefono': data.telefono,
-            'Asistencia': data.asistencia === 'si' ? 'Sí' : 'No',
-            'Cancion': data.cancion,
-            'Mensaje': data.mensaje
-          }
-        })
+        body
       });
+      const json = await res.json();
+      console.log('[RSVP] Respuesta Airtable:', res.status, JSON.stringify(json));
+      if(!res.ok) console.error('[RSVP] ERROR Airtable:', json);
     } catch(err){
-      console.warn('Airtable save failed, kept locally:', err);
+      console.error('[RSVP] Fetch falló (posible CORS):', err);
     }
   }
 
