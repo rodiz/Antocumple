@@ -577,9 +577,10 @@ body::before{
   background:rgba(255,77,151,.12);
   transform:translateY(-2px);
 }
-.upload-zone input{
+.upload-zone input[type="file"]{
   position:absolute;inset:0;
   opacity:0;cursor:pointer;
+  display:none;
 }
 .upload-icon{
   width:54px;height:54px;
@@ -1844,7 +1845,7 @@ body::before{
             <span id="upload-icon">📷</span>
             <span id="upload-text">Toca para subir tu foto</span>
           </label>
-          <input type="file" id="photo-input" accept="image/*" capture="environment" style="display:none" />
+          <input type="file" id="photo-input" accept="image/*" style="display:none" />
         </div>
         <div id="upload-status" class="upload-status"></div>
       </div>
