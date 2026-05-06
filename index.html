@@ -22,7 +22,7 @@
 </template>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -209,7 +209,7 @@ body::before{
 }
 .cover-photo-wrap{
   position:relative;
-  width:min(48%, 220px);
+  width:min(44%, 200px);
   aspect-ratio:3/4;
   margin-top:0;
   animation:photoFloat 6s ease-in-out infinite;
@@ -381,10 +381,10 @@ body::before{
 }
 
 .cover .nombre{
-  font-family:'Cormorant Garamond', serif;
+  font-family:'Great Vibes', cursive;
   font-style:italic;
   font-weight:400;
-  font-size:clamp(38px, 10vw, 56px);
+  font-size:clamp(48px, 13vw, 72px);
   letter-spacing:-.02em;
   background:linear-gradient(120deg, var(--gold), var(--cream), var(--pink-soft));
   -webkit-background-clip:text;
@@ -1118,7 +1118,7 @@ body::before{
   color:rgba(255,179,209,.7);
 }
 .msg-name{
-  font-family:'Cormorant Garamond', serif;
+  font-family:'Great Vibes', cursive;
   font-style:italic;
   font-weight:400;
   font-size:42px;
@@ -1706,6 +1706,131 @@ body::before{
   color: var(--cream);
   line-height: 1.5;
 }
+@media (max-width: 480px) {
+  .cover-bg {
+    justify-content: center;
+    padding-right: 0;
+    opacity: 0.35;
+  }
+  .slide.cover .slide-inner {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    align-items: center !important;
+    text-align: center !important;
+    z-index: 10;
+  }
+  .slide.cover .quince {
+    justify-content: center !important;
+  }
+  .slide.cover .countdown {
+    justify-content: center !important;
+  }
+  .deco-photo {
+    width: clamp(60px, 14vw, 90px) !important;
+    height: clamp(78px, 18vw, 117px) !important;
+  }
+}
+/* ===== XV Party decorations ===== */
+.party-deco {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+.party-item {
+  position: absolute;
+  font-size: 22px;
+  animation: partyFloat var(--dur, 8s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  opacity: 0.55;
+  user-select: none;
+}
+@keyframes partyFloat {
+  0%, 100% { transform: translateY(0px) rotate(var(--rot0, 0deg)) scale(1); }
+  33%       { transform: translateY(-18px) rotate(var(--rot1, 8deg)) scale(1.1); }
+  66%       { transform: translateY(10px) rotate(var(--rot2, -5deg)) scale(0.95); }
+}
+.star-burst {
+  position: fixed;
+  pointer-events: none;
+  z-index: 150;
+  font-size: 24px;
+  animation: starPop 1s ease-out forwards;
+}
+@keyframes starPop {
+  0%   { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
+  50%  { transform: translate(-50%, -50%) scale(1.4) rotate(180deg); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(0.6) rotate(360deg); opacity: 0; }
+}
+/* ===== Dress code interactivo ===== */
+.dresscode-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.dresscode-chip.ok {
+  background: linear-gradient(135deg, rgba(255,77,151,.2), rgba(232,200,122,.15));
+  border: 1px solid rgba(255,77,151,.4);
+  color: var(--cream);
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: .05em;
+}
+.dresscode-no-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: rgba(255,100,100,.8);
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+.dresscode-forbidden {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.forbidden-color {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,.6);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,100,100,.3);
+  background: rgba(255,50,50,.08);
+  transition: all .2s;
+  user-select: none;
+}
+.forbidden-color:hover, .forbidden-color:active {
+  background: rgba(255,50,50,.2);
+  border-color: rgba(255,100,100,.6);
+  transform: scale(1.05);
+}
+.color-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.3);
+  flex-shrink: 0;
+}
+.color-alert {
+  margin-top: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .1em;
+  color: #ff6b6b;
+  min-height: 18px;
+  animation: alertPulse .4s ease;
+  text-align: center;
+}
+@keyframes alertPulse {
+  0%   { transform: scale(0.8); opacity: 0; }
+  60%  { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
 </style>
 </head>
 <body>
@@ -1717,6 +1842,7 @@ body::before{
 
 <div class="sparkles" id="sparkles"></div>
 <canvas id="court-canvas"></canvas>
+<div class="party-deco" id="party-deco"></div>
 
 <!-- Pagination -->
 <div class="pagination">
@@ -1837,12 +1963,29 @@ body::before{
             <div class="detail-icon">03</div>
             <div class="detail-text">
               <div class="detail-label">Dress code</div>
-              <div class="detail-value">Glam Holográfico</div>
-              <div>
-                <span class="dresscode-chip">Brillo</span>
-                <span class="dresscode-chip">Metálicos</span>
-                <span class="dresscode-chip">Rosa</span>
+              <div class="detail-value">Glam Holográfico ✨</div>
+              <div class="dresscode-chips">
+                <span class="dresscode-chip ok" title="¡Sí!">✅ Brillo</span>
+                <span class="dresscode-chip ok" title="¡Sí!">✅ Metálicos</span>
+                <span class="dresscode-chip ok" title="¡Sí!">✅ Rosa</span>
+                <span class="dresscode-chip ok" title="¡Sí!">✅ Dorado</span>
               </div>
+              <div class="dresscode-no-label">🚫 Prohibido usar:</div>
+              <div class="dresscode-forbidden" id="dresscode-forbidden">
+                <span class="forbidden-color" data-color="#ffffff" data-name="Blanco">
+                  <span class="color-swatch" style="background:#ffffff"></span>Blanco
+                </span>
+                <span class="forbidden-color" data-color="#000000" data-name="Negro total">
+                  <span class="color-swatch" style="background:#1a1a1a"></span>Negro
+                </span>
+                <span class="forbidden-color" data-color="#ff0000" data-name="Rojo fuerte">
+                  <span class="color-swatch" style="background:#ff0000"></span>Rojo
+                </span>
+                <span class="forbidden-color" data-color="#808080" data-name="Gris">
+                  <span class="color-swatch" style="background:#808080"></span>Gris
+                </span>
+              </div>
+              <div id="color-alert" class="color-alert"></div>
             </div>
           </div>
 
@@ -2039,6 +2182,51 @@ setTimeout(() => {
   }
 }, 8000);
 
+/* ====== XV Party decorations ====== */
+(function initPartyDeco() {
+  const layer = document.getElementById('party-deco');
+  const items = [
+    { e: '✨', x: 8,  y: 15 }, { e: '⭐', x: 85, y: 20 },
+    { e: '💫', x: 15, y: 75 }, { e: '🌟', x: 90, y: 70 },
+    { e: '✦',  x: 50, y: 5  }, { e: '💃', x: 5,  y: 45 },
+    { e: '🎊', x: 92, y: 45 }, { e: '🎀', x: 48, y: 90 },
+    { e: '👑', x: 50, y: 8  }, { e: '🌸', x: 20, y: 88 },
+    { e: '💕', x: 78, y: 85 }, { e: '🎵', x: 3,  y: 30 },
+    { e: '🎶', x: 95, y: 30 }, { e: '✨', x: 60, y: 95 },
+    { e: '💎', x: 35, y: 3  }, { e: '🦋', x: 70, y: 12 },
+  ];
+  items.forEach((item, i) => {
+    const el = document.createElement('div');
+    el.className = 'party-item';
+    el.textContent = item.e;
+    el.style.left = item.x + '%';
+    el.style.top  = item.y + '%';
+    el.style.setProperty('--dur',    (6 + Math.random() * 6) + 's');
+    el.style.setProperty('--delay',  (i * 0.4) + 's');
+    el.style.setProperty('--rot0',   (Math.random() * 20 - 10) + 'deg');
+    el.style.setProperty('--rot1',   (Math.random() * 20 - 10) + 'deg');
+    el.style.setProperty('--rot2',   (Math.random() * 20 - 10) + 'deg');
+    el.style.fontSize = (16 + Math.random() * 16) + 'px';
+    layer.appendChild(el);
+  });
+
+  // Tap anywhere spawns a burst of stars/hearts
+  document.addEventListener('click', e => {
+    if (e.target.closest('button, input, label, a, .dot, .nav-arrow')) return;
+    const symbols = ['⭐','✨','💫','🌟','💕','🎊','👑','💃','✦'];
+    for (let i = 0; i < 5; i++) {
+      const s = document.createElement('div');
+      s.className = 'star-burst';
+      s.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      s.style.left = (e.clientX + (Math.random() * 60 - 30)) + 'px';
+      s.style.top  = (e.clientY + (Math.random() * 60 - 30)) + 'px';
+      s.style.animationDelay = (i * 0.06) + 's';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 1100);
+    }
+  });
+})();
+
 /* ====== Sparkles ====== */
 (function makeSparkles(){
   const layer = document.getElementById('sparkles');
@@ -2215,6 +2403,27 @@ document.addEventListener('mousemove', e => {
   s.style.color = ['#ff4d97','#ffb3d1','#fff'][Math.floor(Math.random()*3)];
   document.body.appendChild(s);
   setTimeout(()=>s.remove(), 1200);
+});
+
+/* ====== Dress code interactivo ====== */
+document.querySelectorAll('.forbidden-color').forEach(el => {
+  el.addEventListener('click', () => {
+    const name = el.dataset.name;
+    const alert = document.getElementById('color-alert');
+    const msgs = [
+      `🚫 ¡${name} NO! Antonia lo notará 👀`,
+      `❌ Nada de ${name}, por favor 🙏`,
+      `⚠️ ${name} está 100% prohibido esta noche`,
+      `💅 ${name}? Definitivamente NO, amiga`,
+    ];
+    alert.textContent = msgs[Math.floor(Math.random() * msgs.length)];
+    alert.style.animation = 'none';
+    void alert.offsetWidth;
+    alert.style.animation = 'alertPulse .4s ease';
+    // shake the element
+    el.style.transform = 'scale(1.1) rotate(-3deg)';
+    setTimeout(() => el.style.transform = '', 300);
+  });
 });
 
 /* ====== Countdown ====== */
