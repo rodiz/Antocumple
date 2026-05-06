@@ -37,6 +37,10 @@
   --holo-3:#e0b3ff;
   --holo-4:#ffe5b3;
   --gold:#e8c87a;
+  --disco-gold:#ffd700;
+  --disco-silver:#e8e8e8;
+  --disco-orange:#ff6b35;
+  --disco-teal:#00d4aa;
 }
 
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -54,9 +58,9 @@ body{
   position:fixed;
   inset:0;
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(255,77,151,.35), transparent 50%),
-    radial-gradient(ellipse at 80% 100%, rgba(192,216,255,.25), transparent 55%),
-    radial-gradient(ellipse at 50% 50%, rgba(224,179,255,.15), transparent 60%),
+    radial-gradient(ellipse at 20% 0%, rgba(255,215,0,.25), transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(0,212,170,.2), transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(255,107,53,.12), transparent 60%),
     #0a0612;
 }
 
@@ -206,6 +210,7 @@ body::before{
   align-items:center;
   justify-content:flex-end;
   padding-right:5%;
+  align-items: center;
 }
 .cover-photo-wrap{
   position:relative;
@@ -439,17 +444,62 @@ body::before{
 /* Disco ball decoration */
 .disco{
   position:absolute;
-  width:80px;height:80px;
-  top:-20px;right:-20px;
+  top:8%;
+  right:46%;
+  width:70px; height:70px;
   border-radius:50%;
-  background:
-    radial-gradient(circle at 30% 30%, #fff, transparent 40%),
-    conic-gradient(from 0deg, var(--pink), var(--holo-2), var(--holo-3), var(--gold), var(--pink));
-  opacity:.25;
-  filter:blur(4px);
-  animation:spin 12s linear infinite;
+  background:radial-gradient(circle at 35% 30%, #fff 0%, #c0c0c0 40%, #707070 100%);
+  box-shadow:0 0 30px rgba(255,215,0,.7), 0 0 60px rgba(255,215,0,.3);
+  z-index:7;
+  animation:discoSpin 4s linear infinite;
+  overflow:hidden;
 }
-@keyframes spin{to{transform:rotate(360deg)}}
+.disco::before{
+  content:"";
+  position:absolute;
+  inset:0;border-radius:50%;
+  background:conic-gradient(
+    rgba(255,255,255,.8) 0deg, transparent 20deg,
+    rgba(255,215,0,.6) 40deg, transparent 60deg,
+    rgba(255,255,255,.8) 80deg, transparent 100deg,
+    rgba(0,212,170,.5) 120deg, transparent 140deg,
+    rgba(255,255,255,.8) 160deg, transparent 180deg,
+    rgba(255,107,53,.5) 200deg, transparent 220deg,
+    rgba(255,255,255,.8) 240deg, transparent 260deg,
+    rgba(255,215,0,.6) 280deg, transparent 300deg,
+    rgba(255,255,255,.8) 320deg, transparent 340deg,
+    rgba(255,255,255,.8) 360deg
+  );
+  mix-blend-mode:overlay;
+}
+.disco::after{
+  content:"";
+  position:absolute;
+  inset:15%;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%, rgba(255,255,255,.9), transparent 60%);
+  animation:discoSpin 2s linear infinite reverse;
+}
+@keyframes discoSpin{ to{ transform:rotate(360deg); } }
+
+/* Rayos de luz de la bola disco */
+.disco-rays{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+  overflow:hidden;
+}
+.disco-ray{
+  position:absolute;
+  top:50%; left:50%;
+  width:2px;
+  height:45%;
+  transform-origin:top center;
+  background:linear-gradient(to bottom, rgba(255,215,0,.6), transparent);
+  animation:rayRotate 3s linear infinite;
+  border-radius:2px;
+}
+@keyframes rayRotate{ to{ transform:rotate(360deg) translateX(-50%); } }
 
 /* ============ SLIDE 2: DETALLES ============ */
 .detail{
@@ -1399,33 +1449,59 @@ body::before{
 @keyframes splashFade {
   to { opacity: 0; visibility: hidden; }
 }
-.splash-ball {
-  width: 60px;
-  height: 60px;
+.disco-ball-splash {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff, #e8e8e8 60%, #c8c8c8);
+  background: radial-gradient(circle at 35% 30%, #fff 0%, #c0c0c0 40%, #808080 100%);
   box-shadow:
-    inset -8px -10px 20px rgba(0,0,0,.25),
-    inset 4px 4px 10px rgba(255,255,255,.6),
-    0 0 40px rgba(255,77,151,.8);
+    0 0 60px rgba(255,215,0,.8),
+    0 0 120px rgba(255,215,0,.4),
+    inset -15px -15px 30px rgba(0,0,0,.4);
   animation: splashBallIn 1.8s cubic-bezier(.22,1,.36,1) forwards;
   position: relative;
+  overflow: hidden;
 }
-.splash-ball::before {
-  content: "";
+.db-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.6);
+  animation: dbSpin 2s linear infinite;
+}
+.r1 { inset: 10%; border-color: rgba(255,215,0,.7); animation-duration: 1.5s; }
+.r2 { inset: 25%; border-color: rgba(255,255,255,.5); animation-duration: 2s; animation-direction: reverse; }
+.r3 { inset: 40%; border-color: rgba(0,212,170,.6); animation-duration: 1s; }
+@keyframes dbSpin { to { transform: rotate(360deg); } }
+.db-shimmer {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 2px solid rgba(0,0,0,.45);
-  clip-path: polygon(50% 0%, 60% 50%, 50% 100%, 40% 50%);
+  background: conic-gradient(
+    rgba(255,255,255,.6) 0deg, transparent 30deg,
+    rgba(255,215,0,.5) 60deg, transparent 90deg,
+    rgba(255,255,255,.6) 120deg, transparent 150deg,
+    rgba(0,212,170,.4) 180deg, transparent 210deg,
+    rgba(255,255,255,.6) 240deg, transparent 270deg,
+    rgba(255,107,53,.4) 300deg, transparent 330deg,
+    rgba(255,255,255,.6) 360deg
+  );
+  animation: dbSpin 1.2s linear infinite;
+  mix-blend-mode: overlay;
 }
-.splash-ball::after {
-  content: "";
+.splash-text {
   position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 2px solid rgba(0,0,0,.45);
-  clip-path: polygon(0% 50%, 50% 40%, 100% 50%, 50% 60%);
+  bottom: 30%;
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: var(--disco-gold);
+  text-shadow: 0 0 20px rgba(255,215,0,.8);
+  opacity: 0;
+  animation: splashTextIn 1.8s ease forwards 0.8s;
+  letter-spacing: .05em;
+}
+@keyframes splashTextIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes splashBallIn {
   0%   { transform: scale(0) translateY(100px); opacity: 0; }
@@ -1831,13 +1907,42 @@ body::before{
   60%  { transform: scale(1.05); opacity: 1; }
   100% { transform: scale(1); }
 }
+.cover-content {
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 6%;
+  padding-right: 50%;
+  z-index: 10;
+}
+.cover h1 {
+  font-size: clamp(56px, 16vw, 120px);
+  line-height: .9;
+}
+@media (max-width: 480px) {
+  .cover-content {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .cover-bg { opacity: 0.4; }
+  .cover h1 { font-size: clamp(72px, 22vw, 110px); }
+  .cover .nombre { font-size: clamp(42px, 12vw, 60px) !important; }
+}
 </style>
 </head>
 <body>
 
 <div id="splash" class="splash-screen">
-  <div id="splash-ball" class="splash-ball"></div>
+  <div id="splash-ball" class="disco-ball-splash">
+    <div class="db-ring r1"></div>
+    <div class="db-ring r2"></div>
+    <div class="db-ring r3"></div>
+    <div class="db-shimmer"></div>
+  </div>
   <div id="splash-flash" class="splash-flash"></div>
+  <div class="splash-text">✨ Bienvenida a la fiesta ✨</div>
 </div>
 
 <div class="sparkles" id="sparkles"></div>
@@ -1862,18 +1967,22 @@ body::before{
     <!-- ============ SLIDE 1: PORTADA ============ -->
     <section class="slide cover" data-screen-label="01 Portada">
       <div class="cover-bg">
-        <div class="cover-photo-wrap"><img src="fotos/cover.jpeg" alt="Antonia" /></div>
-        <div class="motion-line ml-1"></div>
-        <div class="motion-line ml-2"></div>
-        <div class="motion-line ml-3"></div>
-        <div class="orbit-ball ob-1"></div>
-        <div class="orbit-ball ob-2"></div>
-        <div class="orbit-ball ob-3"></div>
+        <div class="cover-photo-wrap"><img src="fotos/w01.jpeg" alt="Antonia" /></div>
+      </div>
+      <div class="disco-rays">
+        <div class="disco-ray" style="transform:rotate(0deg) translateX(-50%)"></div>
+        <div class="disco-ray" style="transform:rotate(45deg) translateX(-50%);background:linear-gradient(to bottom,rgba(0,212,170,.5),transparent)"></div>
+        <div class="disco-ray" style="transform:rotate(90deg) translateX(-50%);background:linear-gradient(to bottom,rgba(255,107,53,.5),transparent)"></div>
+        <div class="disco-ray" style="transform:rotate(135deg) translateX(-50%)"></div>
+        <div class="disco-ray" style="transform:rotate(180deg) translateX(-50%);background:linear-gradient(to bottom,rgba(0,212,170,.5),transparent)"></div>
+        <div class="disco-ray" style="transform:rotate(225deg) translateX(-50%)"></div>
+        <div class="disco-ray" style="transform:rotate(270deg) translateX(-50%);background:linear-gradient(to bottom,rgba(255,107,53,.5),transparent)"></div>
+        <div class="disco-ray" style="transform:rotate(315deg) translateX(-50%)"></div>
       </div>
       <div class="frame"></div>
       <div class="disco"></div>
 
-      <div class="slide-inner" style="justify-content:center;align-items:flex-start;text-align:left;padding-left:6%;padding-right:52%">
+      <div class="slide-inner cover-content">
         <div class="eyebrow">— Estás invitada —</div>
 
         <div class="quince" style="justify-content:flex-start">Mis</div>
@@ -1894,10 +2003,10 @@ body::before{
 
     <!-- ============ SLIDE 2: MENSAJE ============ -->
     <section class="slide message" data-screen-label="02 Mensaje">
-      <div class="deco-photo" style="top:8%;left:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(-9deg)"><img src="fotos/01.jpeg" alt=""/></div>
-      <div class="deco-photo" style="top:12%;right:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(7deg)"><img src="fotos/05.jpeg" alt=""/></div>
-      <div class="deco-photo" style="bottom:12%;left:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(6deg)"><img src="fotos/12.jpeg" alt=""/></div>
-      <div class="deco-photo" style="bottom:8%;right:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(-8deg)"><img src="fotos/13.jpeg" alt=""/></div>
+      <div class="deco-photo" style="top:8%;left:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(-9deg)"><img src="fotos/w02.jpeg" alt=""/></div>
+      <div class="deco-photo" style="top:12%;right:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(7deg)"><img src="fotos/w05.jpeg" alt=""/></div>
+      <div class="deco-photo" style="bottom:12%;left:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(6deg)"><img src="fotos/w08.jpeg" alt=""/></div>
+      <div class="deco-photo" style="bottom:8%;right:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(-8deg)"><img src="fotos/w11.jpeg" alt=""/></div>
       <div class="slide-inner" style="justify-content:center;align-items:center;text-align:center">
         <div class="msg-deco">
           <div class="msg-line"></div>
@@ -1928,8 +2037,8 @@ body::before{
 
     <!-- ============ SLIDE 3: DETALLES ============ -->
     <section class="slide detail" data-screen-label="03 Detalles">
-      <div class="deco-photo" style="top:6%;right:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(8deg)"><img src="fotos/07.jpeg" alt=""/></div>
-      <div class="deco-photo" style="bottom:12%;left:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(-7deg)"><img src="fotos/14.jpeg" alt=""/></div>
+      <div class="deco-photo" style="top:6%;right:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(8deg)"><img src="fotos/w03.jpeg" alt=""/></div>
+      <div class="deco-photo" style="bottom:12%;left:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(-7deg)"><img src="fotos/w14.jpeg" alt=""/></div>
       <div class="slide-inner">
         <svg class="court-line" viewBox="0 0 300 4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <line x1="0" y1="2" x2="300" y2="2" stroke="#ff4d97" stroke-width="1.5"
@@ -2003,8 +2112,8 @@ body::before{
 
     <!-- ============ SLIDE 4: SUBIR FOTOS ============ -->
     <section class="slide photos" data-screen-label="04 Fotos">
-      <div class="deco-photo" style="top:5%;left:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(-8deg)"><img src="fotos/02.jpeg" alt=""/></div>
-      <div class="deco-photo" style="top:5%;right:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(8deg)"><img src="fotos/15.jpeg" alt=""/></div>
+      <div class="deco-photo" style="top:5%;left:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(-8deg)"><img src="fotos/w06.jpeg" alt=""/></div>
+      <div class="deco-photo" style="top:5%;right:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(8deg)"><img src="fotos/w15.jpeg" alt=""/></div>
       <div class="slide-inner">
         <p class="eyebrow">📸 Comparte un recuerdo</p>
         <h2 class="section-title">Tu foto<br/>en la fiesta</h2>
@@ -2023,8 +2132,8 @@ body::before{
 
     <!-- ============ SLIDE 5: RSVP ============ -->
     <section class="slide rsvp" data-screen-label="05 RSVP">
-      <div class="deco-photo" style="top:6%;left:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(-7deg)"><img src="fotos/03.jpeg" alt=""/></div>
-      <div class="deco-photo" style="top:8%;right:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(8deg)"><img src="fotos/06.jpeg" alt=""/></div>
+      <div class="deco-photo" style="top:6%;left:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(-7deg)"><img src="fotos/w09.jpeg" alt=""/></div>
+      <div class="deco-photo" style="top:8%;right:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(8deg)"><img src="fotos/w12.jpeg" alt=""/></div>
       <div class="slide-inner">
         <div class="head">
           <div class="eyebrow">— Confirma —</div>
@@ -2075,7 +2184,7 @@ body::before{
 
 <!-- Swipe hint (only on slide 0) -->
 <div class="swipe-hint" id="swipe-hint">
-  Desliza <span class="arrow">→</span>
+  🪩 Desliza <span class="arrow">→</span>
 </div>
 
 <!-- Success overlay -->
@@ -2099,7 +2208,7 @@ body::before{
   <span class="ring"></span>
   <span class="icon" id="music-icon">♪</span>
 </button>
-<div class="music-hint" id="music-hint">toca ♪ para escuchar Ma Belle Évangeline</div>
+<div class="music-hint" id="music-hint">toca ♪ para el vals de Harry Potter</div>
 
 <!-- Tweaks -->
 <button class="tweak-fab" id="tweak-fab" title="Tweaks" style="display:none">✦</button>
@@ -2155,7 +2264,7 @@ const musicIcon = document.getElementById('music-icon');
 const musicHint = document.getElementById('music-hint');
 let musicPlaying = false;
 
-const bgAudio = new Audio('Ma Belle Evangeline - Letra Latino.mp3');
+const bgAudio = new Audio('potter-waltz.mp3');
 bgAudio.loop = true;
 bgAudio.volume = 0.5;
 
@@ -2186,14 +2295,15 @@ setTimeout(() => {
 (function initPartyDeco() {
   const layer = document.getElementById('party-deco');
   const items = [
-    { e: '✨', x: 8,  y: 15 }, { e: '⭐', x: 85, y: 20 },
-    { e: '💫', x: 15, y: 75 }, { e: '🌟', x: 90, y: 70 },
-    { e: '✦',  x: 50, y: 5  }, { e: '💃', x: 5,  y: 45 },
-    { e: '🎊', x: 92, y: 45 }, { e: '🎀', x: 48, y: 90 },
-    { e: '👑', x: 50, y: 8  }, { e: '🌸', x: 20, y: 88 },
-    { e: '💕', x: 78, y: 85 }, { e: '🎵', x: 3,  y: 30 },
-    { e: '🎶', x: 95, y: 30 }, { e: '✨', x: 60, y: 95 },
-    { e: '💎', x: 35, y: 3  }, { e: '🦋', x: 70, y: 12 },
+    { e: '🪩', x: 8,  y: 12 }, { e: '🪩', x: 85, y: 18 },
+    { e: '✨', x: 15, y: 72 }, { e: '✨', x: 88, y: 68 },
+    { e: '💫', x: 50, y: 4  }, { e: '💃', x: 5,  y: 42 },
+    { e: '🕺', x: 92, y: 42 }, { e: '🎵', x: 3,  y: 28 },
+    { e: '🎶', x: 94, y: 28 }, { e: '🌟', x: 48, y: 92 },
+    { e: '💎', x: 35, y: 3  }, { e: '🎤', x: 72, y: 10 },
+    { e: '🔮', x: 20, y: 90 }, { e: '⚡', x: 78, y: 88 },
+    { e: '🪞', x: 62, y: 5  }, { e: '👠', x: 8,  y: 82 },
+    { e: '🥂', x: 88, y: 80 }, { e: '🎸', x: 45, y: 97 },
   ];
   items.forEach((item, i) => {
     const el = document.createElement('div');
@@ -2213,7 +2323,7 @@ setTimeout(() => {
   // Tap anywhere spawns a burst of stars/hearts
   document.addEventListener('click', e => {
     if (e.target.closest('button, input, label, a, .dot, .nav-arrow')) return;
-    const symbols = ['⭐','✨','💫','🌟','💕','🎊','👑','💃','✦'];
+    const symbols = ['🪩','✨','💫','🌟','💃','🕺','🎵','⚡','💎','🔮'];
     for (let i = 0; i < 5; i++) {
       const s = document.createElement('div');
       s.className = 'star-burst';
