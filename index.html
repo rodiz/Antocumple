@@ -2963,39 +2963,67 @@ setTimeout(() => {
   }
 }, 8000);
 
-/* ====== XV Party decorations ====== */
+/* ====== Fondo decorativo: imgdecoracion flotantes ====== */
 (function initPartyDeco() {
   const layer = document.getElementById('party-deco');
-  const items = [
-    { e: '🪩', x: 8,  y: 12 }, { e: '🪩', x: 85, y: 18 },
-    { e: '🪩', x: 15, y: 72 }, { e: '🪩', x: 88, y: 68 },
-    { e: '🪩', x: 50, y: 4  }, { e: '🪩', x: 5,  y: 42 },
-    { e: '🪩', x: 92, y: 42 }, { e: '🪩', x: 3,  y: 28 },
-    { e: '🪩', x: 94, y: 28 }, { e: '🪩', x: 48, y: 92 },
-    { e: '🪩', x: 35, y: 3  }, { e: '🪩', x: 72, y: 10 },
-    { e: '🪩', x: 20, y: 90 }, { e: '🪩', x: 78, y: 88 },
-    { e: '🪩', x: 62, y: 5  }, { e: '🪩', x: 8,  y: 82 },
-    { e: '🪩', x: 88, y: 80 }, { e: '🪩', x: 45, y: 97 },
+
+  // Imágenes de imgdecoracion distribuidas armónicamente
+  const imgs = [
+    { src:'imgdecoracion/3.png', x:2,  y:5,  w:110, rot:-8,  dur:13, delay:0   },
+    { src:'imgdecoracion/4.png', x:82, y:4,  w:120, rot:10,  dur:15, delay:2   },
+    { src:'imgdecoracion/1.png', x:78, y:38, w:90,  rot:6,   dur:11, delay:4   },
+    { src:'imgdecoracion/2.png', x:2,  y:45, w:100, rot:-10, dur:14, delay:1   },
+    { src:'imgdecoracion/5.png', x:72, y:74, w:115, rot:8,   dur:16, delay:3   },
+    { src:'imgdecoracion/6.png', x:2,  y:76, w:110, rot:-6,  dur:12, delay:5   },
   ];
-  items.forEach((item, i) => {
+  imgs.forEach((img, i) => {
+    const el = document.createElement('img');
+    el.src = img.src;
+    el.style.cssText = `
+      position:absolute;
+      left:${img.x}%;top:${img.y}%;
+      width:${img.w}px;
+      transform:rotate(${img.rot}deg);
+      opacity:0.18;
+      mix-blend-mode:multiply;
+      filter:blur(0.8px) saturate(0.8) brightness(1.05);
+      pointer-events:none;
+      animation:partyFloat ${img.dur}s ease-in-out infinite ${img.delay}s;
+    `;
+    layer.appendChild(el);
+  });
+
+  // Emojis rosados flotantes pequeños entre las imágenes
+  const emojis = [
+    { e:'🌸', x:45, y:6,  dur:9,  delay:0.5 },
+    { e:'🩷', x:88, y:22, dur:11, delay:1.5 },
+    { e:'💕', x:18, y:30, dur:10, delay:3   },
+    { e:'🌷', x:92, y:52, dur:8,  delay:2   },
+    { e:'🎀', x:50, y:60, dur:12, delay:4   },
+    { e:'💗', x:10, y:64, dur:9,  delay:1   },
+    { e:'🌸', x:60, y:88, dur:11, delay:2.5 },
+    { e:'🩷', x:35, y:92, dur:10, delay:0   },
+  ];
+  emojis.forEach((item, i) => {
     const el = document.createElement('div');
     el.className = 'party-item';
     el.textContent = item.e;
     el.style.left = item.x + '%';
     el.style.top  = item.y + '%';
-    el.style.setProperty('--dur',    (6 + Math.random() * 6) + 's');
-    el.style.setProperty('--delay',  (i * 0.4) + 's');
-    el.style.setProperty('--rot0',   (Math.random() * 20 - 10) + 'deg');
-    el.style.setProperty('--rot1',   (Math.random() * 20 - 10) + 'deg');
-    el.style.setProperty('--rot2',   (Math.random() * 20 - 10) + 'deg');
-    el.style.fontSize = (16 + Math.random() * 16) + 'px';
+    el.style.setProperty('--dur',   item.dur + 's');
+    el.style.setProperty('--delay', item.delay + 's');
+    el.style.setProperty('--rot0',  (Math.random()*16-8) + 'deg');
+    el.style.setProperty('--rot1',  (Math.random()*16-8) + 'deg');
+    el.style.setProperty('--rot2',  (Math.random()*16-8) + 'deg');
+    el.style.fontSize = (18 + Math.random() * 14) + 'px';
+    el.style.opacity = '0.45';
     layer.appendChild(el);
   });
 
-  // Tap anywhere spawns a burst of stars/hearts
+  // Click: explosión de emojis rosados
   document.addEventListener('click', e => {
     if (e.target.closest('button, input, label, a, .dot, .nav-arrow')) return;
-    const symbols = ['🩷','💗','🌸','🎀','💕','🌷','💖','🩷','🎀','🌸'];
+    const symbols = ['🩷','💗','🌸','🎀','💕','🌷','💖'];
     for (let i = 0; i < 5; i++) {
       const s = document.createElement('div');
       s.className = 'star-burst';
@@ -3006,45 +3034,6 @@ setTimeout(() => {
       document.body.appendChild(s);
       setTimeout(() => s.remove(), 1100);
     }
-  });
-})();
-
-/* ====== Mariposas azules ====== */
-(function makeButterflies(){
-  const layer = document.getElementById('butterfly-layer');
-  if(!layer) return;
-  const positions = [
-    {x:8,y:12,dur:11,delay:0,rot:-15,wing:.9},
-    {x:85,y:18,dur:13,delay:2,rot:10,wing:.7},
-    {x:5,y:55,dur:10,delay:4,rot:-8,wing:1.1},
-    {x:90,y:60,dur:14,delay:1,rot:12,wing:.8},
-    {x:15,y:82,dur:12,delay:3,rot:-20,wing:.9},
-    {x:78,y:80,dur:9,delay:5,rot:8,wing:1.0},
-    {x:50,y:8,dur:15,delay:1.5,rot:-5,wing:.85},
-    {x:92,y:38,dur:11,delay:6,rot:15,wing:.95},
-  ];
-  const colors = ['#9b4070','#c9608a','#e8a0b8','#a84070','#9bbdd4'];
-  positions.forEach(p => {
-    const c = colors[Math.floor(Math.random()*colors.length)];
-    const size = 18 + Math.random()*16;
-    const div = document.createElement('div');
-    div.className = 'butterfly';
-    div.style.left = p.x+'%';
-    div.style.top  = p.y+'%';
-    div.style.setProperty('--bDur',   p.dur+'s');
-    div.style.setProperty('--bDelay', p.delay+'s');
-    div.style.setProperty('--bRot',   p.rot+'deg');
-    div.style.setProperty('--bWing',  p.wing+'s');
-    div.innerHTML = `<svg width="${size*2}" height="${size}" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="10" cy="10" rx="10" ry="7" fill="${c}" opacity=".75"/>
-      <ellipse cx="10" cy="10" rx="6"  ry="4" fill="${c}" opacity=".4"/>
-      <ellipse cx="30" cy="10" rx="10" ry="7" fill="${c}" opacity=".75"/>
-      <ellipse cx="30" cy="10" rx="6"  ry="4" fill="${c}" opacity=".4"/>
-      <line x1="20" y1="3" x2="20" y2="17" stroke="${c}" stroke-width="1.2" opacity=".6"/>
-      <path d="M20,3 Q22,0 24,2" stroke="${c}" stroke-width="1" fill="none" opacity=".5"/>
-      <path d="M20,3 Q18,0 16,2" stroke="${c}" stroke-width="1" fill="none" opacity=".5"/>
-    </svg>`;
-    layer.appendChild(div);
   });
 })();
 
