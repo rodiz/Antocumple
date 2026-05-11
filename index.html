@@ -2313,30 +2313,18 @@ body::before{
   .cover-layout .cover-side-photo { width: clamp(75px, 22vw, 100px); }
 }
 /* ===== Decoración Sleeping Beauty fondo ===== */
-.sb-deco-layer {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
 .sb-deco {
   position: absolute;
-  mix-blend-mode: multiply;
-  filter: blur(1.5px) saturate(0.7) brightness(1.1);
-  user-select: none;
   pointer-events: none;
-  animation: sbFloat 12s ease-in-out infinite;
+  user-select: none;
+  z-index: 0;
+  filter: blur(0.6px) saturate(0.85);
+  opacity: 0.22;
+  animation: sbFloat 14s ease-in-out infinite;
 }
-.sb-deco:nth-child(1){ animation-delay:0s; animation-duration:14s; }
-.sb-deco:nth-child(2){ animation-delay:2s; animation-duration:16s; }
-.sb-deco:nth-child(3){ animation-delay:4s; animation-duration:13s; }
-.sb-deco:nth-child(4){ animation-delay:1s; animation-duration:15s; }
-.sb-deco:nth-child(5){ animation-delay:3s; animation-duration:11s; }
-.sb-deco:nth-child(6){ animation-delay:5s; animation-duration:17s; }
 @keyframes sbFloat {
-  0%,100%{ transform-origin: center; transform: var(--tf, rotate(0deg)) translateY(0px); }
-  50%     { transform: var(--tf, rotate(0deg)) translateY(-10px); }
+  0%,100%{ transform: translateY(0px) rotate(var(--sr,0deg)); }
+  50%    { transform: translateY(-12px) rotate(var(--sr,0deg)); }
 }
 
 /* ===== Tamaño base más grande ===== */
@@ -2421,10 +2409,34 @@ html { font-size: 18px; }
   gap: 0;
   width: 100%;
   max-width: 380px;
-  background: rgba(255,255,255,0.7);
-  border: 1.5px solid rgba(201,96,138,0.2);
-  border-radius: 16px;
-  overflow: hidden;
+  background: linear-gradient(160deg, rgba(255,240,248,0.9), rgba(255,250,253,0.95));
+  border: 2px solid rgba(200,160,96,0.45);
+  border-radius: 4px;
+  overflow: visible;
+  position: relative;
+  box-shadow:
+    0 2px 0 rgba(200,160,96,0.4),
+    0 -2px 0 rgba(200,160,96,0.4),
+    2px 0 0 rgba(200,160,96,0.4),
+    -2px 0 0 rgba(200,160,96,0.4),
+    6px 6px 20px rgba(139,34,82,0.1);
+}
+.dresscode-tabla::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(200,160,96,0.25);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.dresscode-tabla::after {
+  content: '';
+  position: absolute;
+  top: -32px; left: 50%; transform: translateX(-50%);
+  width: 60px; height: 60px;
+  background: url('imgdecoracion/1.png') center/contain no-repeat;
+  opacity: 0.55;
+  pointer-events: none;
 }
 .dresscode-col {
   flex: 1;
@@ -2480,15 +2492,6 @@ html { font-size: 18px; }
 <div class="butterfly-layer" id="butterfly-layer"></div>
 <div class="party-deco" id="party-deco"></div>
 
-<!-- Decoración Sleeping Beauty — fondo difuminado -->
-<div class="sb-deco-layer">
-  <img src="imgdecoracion/6.png" class="sb-deco" style="bottom:-2%;left:-4%;width:clamp(160px,38vw,280px);transform:rotate(-8deg);opacity:.13"/>
-  <img src="imgdecoracion/5.png" class="sb-deco" style="bottom:-3%;right:-4%;width:clamp(140px,34vw,240px);transform:rotate(6deg);opacity:.12"/>
-  <img src="imgdecoracion/3.png" class="sb-deco" style="top:8%;right:-3%;width:clamp(100px,24vw,170px);transform:rotate(10deg);opacity:.1"/>
-  <img src="imgdecoracion/4.png" class="sb-deco" style="top:12%;left:-2%;width:clamp(110px,26vw,180px);transform:rotate(-12deg);opacity:.09"/>
-  <img src="imgdecoracion/1.png" class="sb-deco" style="top:42%;right:-2%;width:clamp(80px,18vw,130px);transform:rotate(5deg);opacity:.11"/>
-  <img src="imgdecoracion/2.png" class="sb-deco" style="top:38%;left:-3%;width:clamp(100px,22vw,150px);transform:rotate(-7deg);opacity:.1"/>
-</div>
 
 
 
@@ -2497,6 +2500,8 @@ html { font-size: 18px; }
 
     <!-- SLIDE 1: PORTADA -->
     <section class="slide cover" data-screen-label="01 Portada">
+      <img src="imgdecoracion/3.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(130px,30vw,200px);--sr:-6deg;animation-delay:0s"/>
+      <img src="imgdecoracion/6.png" class="sb-deco" style="bottom:2%;left:-2%;width:clamp(110px,25vw,170px);--sr:8deg;animation-delay:3s"/>
       <div class="frame"></div>
       <span class="star-deco" style="top:8%;left:8%;--dur:7s;--delay:0s">✦</span>
       <span class="star-deco" style="top:12%;right:10%;--dur:9s;--delay:1s">✦</span>
@@ -2525,6 +2530,8 @@ html { font-size: 18px; }
 
     <!-- SLIDE 2: COUNTDOWN + FECHA -->
     <section class="slide" data-screen-label="02 Countdown">
+      <img src="imgdecoracion/5.png" class="sb-deco" style="bottom:3%;right:-2%;width:clamp(130px,30vw,200px);--sr:-5deg;animation-delay:1s"/>
+      <img src="imgdecoracion/4.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(110px,26vw,170px);--sr:7deg;animation-delay:4s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="top:8%;right:8%;--dur:6s;--delay:1.2s">✦</span>
       <span class="star-deco" style="bottom:8%;left:6%;--dur:9s;--delay:.4s">✦</span>
@@ -2578,6 +2585,8 @@ html { font-size: 18px; }
 
     <!-- SLIDE 3: MÚSICA + MENSAJE -->
     <section class="slide" data-screen-label="03 Musica">
+      <img src="imgdecoracion/1.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(120px,28vw,190px);--sr:-8deg;animation-delay:2s"/>
+      <img src="imgdecoracion/2.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(110px,26vw,170px);--sr:6deg;animation-delay:5s"/>
       <span class="star-deco" style="top:5%;right:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="bottom:8%;left:5%;--dur:7s;--delay:1s">✦</span>
       <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-7deg)"><img src="fotos/w01.jpeg" alt="Anto niña"/></div>
@@ -2615,6 +2624,8 @@ html { font-size: 18px; }
 
     <!-- SLIDE 4: PADRES Y PADRINOS -->
     <section class="slide" data-screen-label="04 Familia">
+      <img src="imgdecoracion/4.png" class="sb-deco" style="bottom:3%;right:-2%;width:clamp(130px,30vw,200px);--sr:-7deg;animation-delay:1s"/>
+      <img src="imgdecoracion/6.png" class="sb-deco" style="bottom:2%;left:-2%;width:clamp(100px,24vw,160px);--sr:9deg;animation-delay:4s"/>
       <span class="star-deco" style="top:6%;left:6%;--dur:9s;--delay:.3s">✦</span>
       <span class="star-deco" style="top:6%;right:6%;--dur:7s;--delay:1.5s">✦</span>
       <span class="star-deco" style="bottom:6%;left:6%;--dur:8s;--delay:.8s">✦</span>
@@ -2656,6 +2667,8 @@ html { font-size: 18px; }
 
     <!-- SLIDE 5: UBICACIÓN -->
     <section class="slide" data-screen-label="05 Ubicacion">
+      <img src="imgdecoracion/5.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(130px,30vw,200px);--sr:-6deg;animation-delay:2s"/>
+      <img src="imgdecoracion/3.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(110px,26vw,175px);--sr:8deg;animation-delay:0s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1s">✦</span>
       <span class="star-deco" style="bottom:5%;right:5%;--dur:9s;--delay:.5s">✦</span>
@@ -2697,6 +2710,8 @@ html { font-size: 18px; }
 
     <!-- SLIDE 6: CÓDIGO DE VESTIMENTA -->
     <section class="slide" data-screen-label="06 Vestimenta">
+      <img src="imgdecoracion/1.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(120px,28vw,185px);--sr:-9deg;animation-delay:3s"/>
+      <img src="imgdecoracion/2.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(110px,26vw,170px);--sr:7deg;animation-delay:1s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1.3s">✦</span>
       <span class="star-deco" style="bottom:8%;left:8%;--dur:9s;--delay:.6s">✦</span>
@@ -2710,14 +2725,11 @@ html { font-size: 18px; }
         <div class="familia-divider"></div>
 
         <!-- Tabla damas / caballeros -->
-        <div class="dresscode-tabla">
+        <div class="dresscode-tabla" style="margin-top:36px">
           <div class="dresscode-col">
             <div class="dresscode-col-title">Damas</div>
             <div class="dresscode-col-body">
               Vestido largo<br/>o coctel elegante
-            </div>
-            <div class="dresscode-col-note">
-              Rosado reservado<br/>para la Quinceañera
             </div>
           </div>
           <div class="dresscode-tabla-sep"></div>
@@ -2725,9 +2737,6 @@ html { font-size: 18px; }
             <div class="dresscode-col-title">Caballeros</div>
             <div class="dresscode-col-body">
               Traje formal<br/>o elegante
-            </div>
-            <div class="dresscode-col-note">
-              Corbata o<br/>pañuelo de bolsillo
             </div>
           </div>
         </div>
@@ -2761,6 +2770,8 @@ html { font-size: 18px; }
 
     <!-- SLIDE 7: FOTO DE RECUERDO -->
     <section class="slide" data-screen-label="07 Fotos">
+      <img src="imgdecoracion/6.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(120px,28vw,185px);--sr:-5deg;animation-delay:2s"/>
+      <img src="imgdecoracion/5.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(110px,26vw,170px);--sr:8deg;animation-delay:4s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1s">✦</span>
       <div class="deco-photo" style="bottom:5%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-6deg)"><img src="fotos/w07.jpeg" alt="Anto"/></div>
@@ -2783,6 +2794,8 @@ html { font-size: 18px; }
 
     <!-- SLIDE 8: CONFIRMACIÓN DE ASISTENCIA -->
     <section class="slide rsvp" data-screen-label="08 RSVP">
+      <img src="imgdecoracion/3.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(120px,28vw,185px);--sr:-7deg;animation-delay:1s"/>
+      <img src="imgdecoracion/4.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(110px,26vw,170px);--sr:6deg;animation-delay:3s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1s">✦</span>
       <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-8deg)"><img src="fotos/w11.jpeg" alt="Anto"/></div>
