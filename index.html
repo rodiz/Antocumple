@@ -2293,6 +2293,127 @@ body::before{
   .cover-layout { gap: 6px; }
   .cover-layout .cover-side-photo { width: clamp(75px, 22vw, 100px); }
 }
+/* ===== Tamaño base más grande ===== */
+html { font-size: 18px; }
+.msg-body { font-size: 18px !important; }
+.slide-subtitle { font-size: 13px !important; letter-spacing:.25em !important; }
+.familia-names { font-size: 24px !important; }
+.detail-value { font-size: 20px !important; }
+.detail-sub { font-size: 16px !important; }
+.detail-label { font-size: 13px !important; }
+.dresscode-section-body { font-size: 18px !important; }
+.msg-card { font-size: 19px !important; }
+.regalo-card { font-size: 18px !important; }
+.countdown-slide-date { font-size: 26px !important; }
+
+/* ===== Fotos más grandes ===== */
+.deco-photo {
+  width: clamp(100px, 22vw, 160px) !important;
+  height: clamp(130px, 28vw, 210px) !important;
+}
+.cover-layout .cover-side-photo {
+  width: clamp(120px, 30vw, 190px) !important;
+}
+
+/* ===== Timeline vertical ===== */
+.timeline {
+  width: 100%;
+  max-width: 360px;
+  position: relative;
+  padding: 8px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(201,96,138,0.2), rgba(201,96,138,0.6), rgba(201,96,138,0.2));
+  transform: translateX(-50%);
+}
+.tl-item {
+  display: grid;
+  grid-template-columns: 1fr 24px 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  position: relative;
+}
+.tl-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: .1em;
+  color: var(--text-mid);
+  text-align: right;
+  font-weight: 500;
+}
+.tl-dot {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c9608a, #8b2252);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px rgba(201,96,138,0.4);
+  justify-self: center;
+  flex-shrink: 0;
+}
+.tl-dot-last {
+  background: linear-gradient(135deg, #8b2252, #5a1a35);
+  box-shadow: 0 0 0 3px rgba(139,34,82,0.4);
+}
+.tl-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text-dark);
+  text-align: left;
+  line-height: 1.3;
+}
+
+/* ===== Tabla dresscode ===== */
+.dresscode-tabla {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  max-width: 380px;
+  background: rgba(255,255,255,0.7);
+  border: 1.5px solid rgba(201,96,138,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.dresscode-col {
+  flex: 1;
+  padding: 20px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dresscode-tabla-sep {
+  width: 1px;
+  background: rgba(201,96,138,0.2);
+  margin: 16px 0;
+}
+.dresscode-col-title {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 34px;
+  color: #8b2252;
+  line-height: 1;
+}
+.dresscode-col-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+.dresscode-col-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: var(--text-mid);
+  line-height: 1.4;
+  margin-top: 4px;
+}
 </style>
 </head>
 <body>
@@ -2376,16 +2497,25 @@ body::before{
 
         <div style="margin-top:28px;display:flex;gap:32px;justify-content:center;align-items:center">
           <div style="text-align:center">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-mid);margin-bottom:4px">Día</div>
-            <div style="font-family:'Fraunces',serif;font-size:56px;font-weight:300;line-height:1;color:var(--text-dark)">27</div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--text-mid)">SÁBADO</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-mid);margin-bottom:4px">Día</div>
+            <div style="font-family:'Fraunces',serif;font-size:72px;font-weight:300;line-height:1;color:var(--text-dark)">27</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--text-mid)">SÁBADO</div>
           </div>
-          <div style="width:1px;height:80px;background:rgba(180,80,120,.2)"></div>
+          <div style="width:1px;height:100px;background:rgba(180,80,120,.25)"></div>
           <div style="text-align:center">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-mid);margin-bottom:4px">Hora</div>
-            <div style="font-family:'Fraunces',serif;font-size:56px;font-weight:300;line-height:1;color:var(--text-dark)">8<span style="font-size:28px">pm</span></div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--text-mid)">JUNIO 2026</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-mid);margin-bottom:4px">Hora</div>
+            <div style="font-family:'Fraunces',serif;font-size:72px;font-weight:300;line-height:1;color:var(--text-dark)">8<span style="font-size:36px">pm</span></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--text-mid)">JUNIO 2026</div>
           </div>
+        </div>
+
+        <div style="margin-top:24px;text-align:center">
+          <div style="font-family:'Pinyon Script',cursive;font-size:28px;color:var(--text-dark);line-height:1.2">Salón de Eventos Bavaria Center Hall</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--text-mid);margin-top:4px">Cl. 29 #13-138, Santa Marta</div>
+          <a href="https://maps.google.com/?q=Bavaria+Center+Hall+Santa+Marta" target="_blank"
+             style="display:inline-block;margin-top:12px;padding:10px 28px;background:linear-gradient(135deg,#c9608a,#8b2252);color:#fff;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 16px rgba(180,80,120,0.3)">
+            Ver ubicación
+          </a>
         </div>
       </div>
     </section>
@@ -2476,47 +2606,36 @@ body::before{
       <div class="deco-photo" style="bottom:5%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-7deg)"><img src="fotos/w08.jpeg" alt="Anto uniforme"/></div>
       <div class="deco-photo" style="bottom:5%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(6deg)"><img src="fotos/w05.jpeg" alt="Anto con mamá"/></div>
       <div class="slide-inner">
-        <div class="slide-title">Recepción</div>
-        <div class="slide-subtitle">— todos los detalles —</div>
+        <div class="slide-title">Minuto a Minuto</div>
+        <div class="slide-subtitle">— la noche de Antonia —</div>
 
-        <div class="familia-divider"></div>
-
-        <div style="width:100%;max-width:380px;display:flex;flex-direction:column;gap:20px">
-
-          <div style="text-align:center">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(180,80,120,.6);margin-bottom:6px">Cuándo</div>
-            <div style="font-family:'Great Vibes',cursive;font-size:32px;color:#5a1a35;line-height:1">Sábado 27 de Junio</div>
-            <div style="font-family:'Fraunces',serif;font-size:14px;font-weight:300;color:rgba(90,26,53,.7);letter-spacing:.08em;margin-top:2px">2026 · 8:00 PM</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-time">8:00 PM</div>
+            <div class="tl-dot"></div>
+            <div class="tl-text">Llegada de invitados</div>
           </div>
-
-          <div class="familia-divider"></div>
-
-          <div style="text-align:center">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(180,80,120,.6);margin-bottom:6px">Dónde</div>
-            <div style="font-family:'Great Vibes',cursive;font-size:32px;color:#5a1a35;line-height:1">Salón de Eventos Bavaria Center</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(90,26,53,.7);margin-top:2px">Cra. 11 #93-45, Bogotá</div>
-            <a href="https://maps.google.com/?q=Salon+Bavaria+Center+Bogota" target="_blank"
-               style="display:inline-block;margin-top:10px;padding:8px 22px;background:linear-gradient(135deg,#c9608a,#5a1a35);color:#fff;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none">
-              Ver ubicación
-            </a>
+          <div class="tl-item">
+            <div class="tl-time">8:30 PM</div>
+            <div class="tl-dot"></div>
+            <div class="tl-text">Entrada de la Quinceañera</div>
           </div>
-
-          <div class="familia-divider"></div>
-
-          <div style="text-align:center">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(180,80,120,.6);margin-bottom:6px">Minuto a Minuto</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#5a1a35;line-height:1.5">
-              8:00 PM · Llegada de invitados<br/>
-              8:30 PM · Entrada de la Quinceañera<br/>
-              9:00 PM · Vals de honor<br/>
-              10:00 PM · Cena<br/>
-              11:00 PM · Fiesta y baile
-            </div>
+          <div class="tl-item">
+            <div class="tl-time">9:00 PM</div>
+            <div class="tl-dot"></div>
+            <div class="tl-text">Vals de honor</div>
           </div>
-
+          <div class="tl-item">
+            <div class="tl-time">10:00 PM</div>
+            <div class="tl-dot"></div>
+            <div class="tl-text">Cena</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">11:00 PM</div>
+            <div class="tl-dot tl-dot-last"></div>
+            <div class="tl-text">Fiesta y baile</div>
+          </div>
         </div>
-
-        <div class="familia-divider"></div>
       </div>
     </section>
 
@@ -2534,61 +2653,52 @@ body::before{
 
         <div class="familia-divider"></div>
 
-        <div style="width:100%;max-width:380px;display:flex;flex-direction:column;gap:18px">
-
-          <div class="dresscode-section">
-            <div class="dresscode-section-title">Damas</div>
-            <div class="dresscode-section-body">
-              Elegante formal. Vestido largo o coctel.<br/>
-              Colores recomendados: azul, verde, morado, dorado, plateado, blanco roto, nude.
+        <!-- Tabla damas / caballeros -->
+        <div class="dresscode-tabla">
+          <div class="dresscode-col">
+            <div class="dresscode-col-title">Damas</div>
+            <div class="dresscode-col-body">
+              Vestido largo<br/>o coctel elegante
             </div>
-            <div class="dresscode-reserve">
-              <div class="dresscode-reserve-bar"></div>
-              <div class="dresscode-reserve-text">
-                El tono <strong>rosado en todos sus matices</strong> está reservado exclusivamente para la Quinceañera
-              </div>
+            <div class="dresscode-col-note">
+              Rosado reservado<br/>para la Quinceañera
             </div>
           </div>
-
-          <div class="familia-divider"></div>
-
-          <div class="dresscode-section">
-            <div class="dresscode-section-title">Caballeros</div>
-            <div class="dresscode-section-body">
-              Traje formal o vestimenta elegante.<br/>
-              Camisa de vestir, pantalón de paño o traje completo.<br/>
-              Corbata o pañuelo de bolsillo recomendado.
+          <div class="dresscode-tabla-sep"></div>
+          <div class="dresscode-col">
+            <div class="dresscode-col-title">Caballeros</div>
+            <div class="dresscode-col-body">
+              Traje formal<br/>o elegante
+            </div>
+            <div class="dresscode-col-note">
+              Corbata o<br/>pañuelo de bolsillo
             </div>
           </div>
+        </div>
 
-          <div class="familia-divider"></div>
+        <div class="familia-divider"></div>
 
-          <div class="dresscode-section">
-            <div class="dresscode-section-title">Colores a evitar</div>
-            <div class="dresscode-forbidden" id="dresscode-forbidden" style="justify-content:center;margin-top:8px">
-              <span class="forbidden-color" data-color="#ffc0cb" data-name="Rosado">
-                <span class="color-swatch" style="background:#ffb3c6;border:1px solid #e890aa"></span>Rosado
-              </span>
-              <span class="forbidden-color" data-color="#ffffff" data-name="Blanco puro">
-                <span class="color-swatch" style="background:#ffffff;border:1px solid #ddd"></span>Blanco
-              </span>
-              <span class="forbidden-color" data-color="#000000" data-name="Negro total">
-                <span class="color-swatch" style="background:#1a1a1a"></span>Negro total
-              </span>
-            </div>
-            <div id="color-alert" class="color-alert" style="text-align:center;margin-top:8px"></div>
+        <!-- Color a evitar -->
+        <div style="text-align:center">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--text-mid);margin-bottom:10px">Color reservado para la Quinceañera</div>
+          <div class="dresscode-forbidden" id="dresscode-forbidden" style="justify-content:center">
+            <span class="forbidden-color" data-color="#ffc0cb" data-name="Rosado (todos sus tonos)">
+              <span class="color-swatch" style="background:linear-gradient(135deg,#ffb3c6,#e8699a,#c9608a);border:none;width:20px;height:20px"></span>Tonos Rosados
+            </span>
           </div>
+          <div id="color-alert" class="color-alert" style="text-align:center;margin-top:8px"></div>
+        </div>
 
-          <div class="familia-divider"></div>
+        <div class="familia-divider"></div>
 
-          <div class="regalo-card" style="font-size:15px;padding:20px">
-            No hay un regalo específico.<br/>
-            Lo más valioso para mí es <strong style="font-style:normal">tu presencia</strong>.<br/>
-            Pero si deseas tener un detalle,<br/>
-            que sea algo que nazca del corazón.<br/>
-            <span style="color:var(--text-mid);font-style:normal;font-weight:600">¡Gracias!</span>
-          </div>
-
+        <!-- Regalo / sobres -->
+        <div class="regalo-card">
+          <div style="font-size:32px;margin-bottom:12px">💌</div>
+          Tu presencia es el mejor regalo.<br/>
+          Si deseas compartir algo más,<br/>
+          una <strong style="font-style:normal;color:var(--text-mid)">lluvia de sobres</strong><br/>
+          siempre llena el corazón.<br/>
+          <span style="color:var(--text-mid);font-style:normal;font-weight:600;display:block;margin-top:8px">¡Gracias!</span>
         </div>
       </div>
     </section>
@@ -2829,7 +2939,7 @@ setTimeout(() => {
   // Tap anywhere spawns a burst of stars/hearts
   document.addEventListener('click', e => {
     if (e.target.closest('button, input, label, a, .dot, .nav-arrow')) return;
-    const symbols = ['🪩','🪩','🪩','🪩','🪩'];
+    const symbols = ['🩷','💗','🌸','🎀','💕','🌷','💖','🩷','🎀','🌸'];
     for (let i = 0; i < 5; i++) {
       const s = document.createElement('div');
       s.className = 'star-burst';
@@ -2970,7 +3080,7 @@ document.querySelector('.cover h1').addEventListener('click', e => {
   for(let i=0;i<6;i++){
     const h = document.createElement('div');
     h.className='heart-burst';
-    h.textContent = ['♡','✦','✿','★'][Math.floor(Math.random()*4)];
+    h.textContent = ['🩷','💗','🌸','🎀','💕','🌷','💖'][Math.floor(Math.random()*7)];
     h.style.left = (e.clientX + (Math.random()*60-30))+'px';
     h.style.top = (e.clientY + (Math.random()*20-10))+'px';
     h.style.color = ['var(--pink)','#e8a0b8','#8fa8b8','#fff'][Math.floor(Math.random()*4)];
@@ -2986,7 +3096,7 @@ document.querySelector('.cover-photo-wrap')?.addEventListener('click', function(
   for (let i = 0; i < 12; i++) {
     const p = document.createElement('div');
     p.className = 'heart-burst';
-    p.textContent = i % 3 === 0 ? '🪩' : ['✦','✿','★'][i % 3];
+    p.textContent = ['🩷','💗','🌸','🎀','💕','🌷','💖'][Math.floor(Math.random()*7)];
     p.style.left = (e.clientX + (Math.random() * 80 - 40)) + 'px';
     p.style.top  = (e.clientY + (Math.random() * 30 - 15)) + 'px';
     p.style.color = colors[Math.floor(Math.random() * colors.length)];
@@ -3005,7 +3115,7 @@ document.addEventListener('mousemove', e => {
   lastSparkle = now;
   const s = document.createElement('div');
   s.className='heart-burst';
-  s.textContent = '✦';
+  s.textContent = ['🩷','💗','🌸','🎀','💕'][Math.floor(Math.random()*5)];
   s.style.left = e.clientX+'px';
   s.style.top = e.clientY+'px';
   s.style.fontSize = (8+Math.random()*8)+'px';
