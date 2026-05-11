@@ -61,25 +61,49 @@ body{
   position:fixed;
   inset:0;
   background:
-    radial-gradient(ellipse at 10% 5%, rgba(173,210,230,0.4), transparent 40%),
-    radial-gradient(ellipse at 90% 10%, rgba(200,220,235,0.3), transparent 35%),
-    radial-gradient(ellipse at 50% 95%, rgba(173,210,230,0.35), transparent 45%),
-    radial-gradient(ellipse at 85% 85%, rgba(180,215,235,0.25), transparent 35%),
+    radial-gradient(ellipse 80% 60% at 8% 8%, rgba(173,210,230,0.55), transparent),
+    radial-gradient(ellipse 60% 50% at 92% 5%, rgba(200,225,240,0.45), transparent),
+    radial-gradient(ellipse 70% 55% at 5% 92%, rgba(173,210,230,0.5), transparent),
+    radial-gradient(ellipse 65% 50% at 95% 90%, rgba(190,218,235,0.4), transparent),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(220,235,245,0.3), transparent),
     #f0f6fc;
 }
 
-/* Animated grain */
+/* Watercolor blobs extra */
 body::before{
   content:"";
   position:fixed;
-  inset:-50%;
+  inset:0;
   background-image:
-    radial-gradient(circle at 25% 25%, rgba(74,127,165,.06) 1px, transparent 1px),
-    radial-gradient(circle at 75% 75%, rgba(44,74,110,.04) 1px, transparent 1px);
-  background-size:3px 3px, 5px 5px;
+    radial-gradient(ellipse 120px 80px at 15% 30%, rgba(74,127,165,0.12), transparent),
+    radial-gradient(ellipse 90px 120px at 80% 25%, rgba(100,160,200,0.1), transparent),
+    radial-gradient(ellipse 100px 70px at 70% 70%, rgba(74,127,165,0.1), transparent),
+    radial-gradient(ellipse 80px 100px at 20% 75%, rgba(120,170,210,0.1), transparent);
   pointer-events:none;
   z-index:1;
-  mix-blend-mode:multiply;
+}
+
+/* Mariposas azules */
+.butterfly-layer{position:fixed;inset:0;pointer-events:none;z-index:3;overflow:hidden}
+.butterfly{
+  position:absolute;
+  animation:bfloat var(--bDur,10s) ease-in-out infinite;
+  animation-delay:var(--bDelay,0s);
+  opacity:0.6;
+}
+@keyframes bfloat{
+  0%{transform:translate(0,0) rotate(var(--bRot,0deg)) scale(1)}
+  25%{transform:translate(20px,-30px) rotate(calc(var(--bRot,0deg) + 10deg)) scale(1.05)}
+  50%{transform:translate(-10px,-50px) rotate(calc(var(--bRot,0deg) - 8deg)) scale(0.95)}
+  75%{transform:translate(15px,-30px) rotate(calc(var(--bRot,0deg) + 6deg)) scale(1.02)}
+  100%{transform:translate(0,0) rotate(var(--bRot,0deg)) scale(1)}
+}
+.butterfly svg{
+  animation:bwing var(--bWing,0.8s) ease-in-out infinite alternate;
+}
+@keyframes bwing{
+  from{transform:scaleX(1)}
+  to{transform:scaleX(0.4)}
 }
 
 /* Floating sparkles */
@@ -194,11 +218,11 @@ body::before{
   display:flex;
   align-items:center;
   justify-content:center;
-  opacity:0.18;
+  opacity:0.72;
 }
 .cover-photo-wrap{
   position:relative;
-  width:min(80%, 340px);
+  width:min(88%, 400px);
   aspect-ratio:3/4;
   margin-top:0;
   animation:photoFloat 6s ease-in-out infinite;
@@ -2180,6 +2204,7 @@ body::before{
 
 <div class="sparkles" id="sparkles"></div>
 <canvas id="court-canvas"></canvas>
+<div class="butterfly-layer" id="butterfly-layer"></div>
 <div class="party-deco" id="party-deco"></div>
 
 <!-- Pagination -->
@@ -2690,6 +2715,45 @@ setTimeout(() => {
       document.body.appendChild(s);
       setTimeout(() => s.remove(), 1100);
     }
+  });
+})();
+
+/* ====== Mariposas azules ====== */
+(function makeButterflies(){
+  const layer = document.getElementById('butterfly-layer');
+  if(!layer) return;
+  const positions = [
+    {x:8,y:12,dur:11,delay:0,rot:-15,wing:.9},
+    {x:85,y:18,dur:13,delay:2,rot:10,wing:.7},
+    {x:5,y:55,dur:10,delay:4,rot:-8,wing:1.1},
+    {x:90,y:60,dur:14,delay:1,rot:12,wing:.8},
+    {x:15,y:82,dur:12,delay:3,rot:-20,wing:.9},
+    {x:78,y:80,dur:9,delay:5,rot:8,wing:1.0},
+    {x:50,y:8,dur:15,delay:1.5,rot:-5,wing:.85},
+    {x:92,y:38,dur:11,delay:6,rot:15,wing:.95},
+  ];
+  const colors = ['#7ba7c2','#4a7fa5','#a8c4d8','#5b8fa8','#9bbdd4'];
+  positions.forEach(p => {
+    const c = colors[Math.floor(Math.random()*colors.length)];
+    const size = 18 + Math.random()*16;
+    const div = document.createElement('div');
+    div.className = 'butterfly';
+    div.style.left = p.x+'%';
+    div.style.top  = p.y+'%';
+    div.style.setProperty('--bDur',   p.dur+'s');
+    div.style.setProperty('--bDelay', p.delay+'s');
+    div.style.setProperty('--bRot',   p.rot+'deg');
+    div.style.setProperty('--bWing',  p.wing+'s');
+    div.innerHTML = `<svg width="${size*2}" height="${size}" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="10" cy="10" rx="10" ry="7" fill="${c}" opacity=".75"/>
+      <ellipse cx="10" cy="10" rx="6"  ry="4" fill="${c}" opacity=".4"/>
+      <ellipse cx="30" cy="10" rx="10" ry="7" fill="${c}" opacity=".75"/>
+      <ellipse cx="30" cy="10" rx="6"  ry="4" fill="${c}" opacity=".4"/>
+      <line x1="20" y1="3" x2="20" y2="17" stroke="${c}" stroke-width="1.2" opacity=".6"/>
+      <path d="M20,3 Q22,0 24,2" stroke="${c}" stroke-width="1" fill="none" opacity=".5"/>
+      <path d="M20,3 Q18,0 16,2" stroke="${c}" stroke-width="1" fill="none" opacity=".5"/>
+    </svg>`;
+    layer.appendChild(div);
   });
 })();
 
