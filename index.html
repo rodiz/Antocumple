@@ -208,7 +208,8 @@ body::before{
 .cover{
   text-align:center;
   align-items:center;
-  justify-content:center;
+  justify-content:flex-start;
+  padding-top:80px;
 }
 .cover-bg{
   position:absolute;
@@ -1899,9 +1900,32 @@ body::before{
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 20px 20px 0;
   z-index: 10;
   gap: 8px;
+}
+.cover-photos-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 24px 20px 32px;
+  z-index: 10;
+  position: relative;
+}
+.cover-side-photo {
+  width: clamp(120px, 32vw, 180px);
+  aspect-ratio: 3/4;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 32px rgba(74,127,165,0.3), 0 2px 8px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+.cover-side-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .cover h1 {
   font-size: clamp(56px, 16vw, 120px);
@@ -2227,15 +2251,10 @@ body::before{
 
     <!-- SLIDE 1: PORTADA -->
     <section class="slide cover" data-screen-label="01 Portada">
-      <div class="cover-bg">
-        <div class="cover-photo-wrap"><img src="fotos/w01.jpeg" alt="Antonia" /></div>
-      </div>
       <div class="frame"></div>
       <div class="disco">🪩</div>
       <span class="star-deco" style="top:8%;left:8%;--dur:7s;--delay:0s">✦</span>
       <span class="star-deco" style="top:12%;right:10%;--dur:9s;--delay:1s">✦</span>
-      <span class="star-deco" style="bottom:15%;left:12%;--dur:8s;--delay:2s">✦</span>
-      <span class="star-deco" style="bottom:10%;right:8%;--dur:6s;--delay:.5s">✦</span>
 
       <div class="slide-inner cover-content">
         <div class="eyebrow">— Estás invitada —</div>
@@ -2244,6 +2263,15 @@ body::before{
         <div class="quince">años</div>
         <div class="invita">con amor,</div>
         <div class="nombre">Antonia&nbsp;Nates</div>
+      </div>
+
+      <div class="cover-photos-row">
+        <div class="cover-side-photo" style="transform:rotate(-4deg)">
+          <img src="fotos/w01.jpeg" alt="Antonia" />
+        </div>
+        <div class="cover-side-photo" style="transform:rotate(4deg)">
+          <img src="fotos/w10.jpeg" alt="Antonia" />
+        </div>
       </div>
     </section>
 
