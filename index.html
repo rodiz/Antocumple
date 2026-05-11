@@ -1893,6 +1893,276 @@ body::before{
   .cover h1 { font-size: clamp(72px, 22vw, 110px); }
   .cover .nombre { font-size: clamp(44px, 11vw, 64px) !important; }
 }
+/* ===== Nuevos slides ===== */
+.slide-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(38px, 10vw, 56px);
+  color: #2c4a6e;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.slide-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(74,127,165,0.7);
+  text-align: center;
+  margin-bottom: 24px;
+}
+.music-player-box {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255,255,255,0.85);
+  border: 1.5px solid rgba(74,127,165,0.3);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(74,127,165,0.15);
+}
+.music-player-box .song-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #2c4a6e;
+  margin-bottom: 6px;
+}
+.music-player-box .song-artist {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: rgba(74,127,165,0.7);
+  margin-bottom: 20px;
+}
+.music-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(74,127,165,0.2);
+  border-radius: 99px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.music-bar-fill {
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%;
+  width: 35%;
+  background: linear-gradient(90deg, #4a7fa5, #7ba7c2);
+  border-radius: 99px;
+}
+.music-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.music-play-btn {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a7fa5, #2c4a6e);
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(74,127,165,0.4);
+  transition: transform .2s;
+}
+.music-play-btn:active { transform: scale(.95); }
+.music-ctrl-btn {
+  background: none;
+  border: none;
+  color: rgba(74,127,165,0.6);
+  font-size: 18px;
+  cursor: pointer;
+}
+.msg-card {
+  width: 100%;
+  max-width: 360px;
+  background: linear-gradient(135deg, rgba(173,210,230,0.3), rgba(255,255,255,0.9));
+  border: 1.5px solid rgba(74,127,165,0.25);
+  border-radius: 16px;
+  padding: 24px 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #2c4a6e;
+  line-height: 1.7;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(74,127,165,0.1);
+  position: relative;
+}
+.msg-card::before, .msg-card::after {
+  content: '✦';
+  position: absolute;
+  color: rgba(74,127,165,0.3);
+  font-size: 16px;
+}
+.msg-card::before { top: 10px; left: 14px; }
+.msg-card::after  { bottom: 10px; right: 14px; }
+
+/* Countdown slide */
+.countdown-slide-date {
+  font-family: 'Great Vibes', cursive;
+  font-size: 22px;
+  color: #4a7fa5;
+  margin-bottom: 4px;
+}
+.countdown-slide-display {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(44px, 14vw, 80px);
+  font-weight: 300;
+  color: #2c4a6e;
+  letter-spacing: -.02em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+.countdown-slide-display .sep {
+  color: rgba(74,127,165,0.4);
+  font-size: .6em;
+}
+.countdown-slide-labels {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: rgba(74,127,165,0.6);
+  margin-top: 6px;
+}
+.countdown-slide-labels span { width: 48px; text-align: center; }
+
+/* Familia slide */
+.familia-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.familia-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  color: #4a7fa5;
+  margin-bottom: 6px;
+}
+.familia-names {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #2c4a6e;
+  line-height: 1.7;
+  letter-spacing: .02em;
+}
+.familia-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74,127,165,0.4), transparent);
+  margin: 16px auto;
+}
+
+/* Ubicacion slide */
+.ubicacion-card {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255,255,255,0.85);
+  border: 1.5px solid rgba(74,127,165,0.25);
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(74,127,165,0.1);
+  margin-bottom: 16px;
+}
+.ubicacion-icon { font-size: 36px; margin-bottom: 8px; }
+.ubicacion-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(74,127,165,0.6);
+  margin-bottom: 4px;
+}
+.ubicacion-value {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #2c4a6e;
+  margin-bottom: 4px;
+}
+.ubicacion-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(74,127,165,0.8);
+}
+.ubicacion-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #4a7fa5, #2c4a6e);
+  color: white;
+  border-radius: 99px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Vestimenta slide */
+.vestimenta-libre {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: #2c4a6e;
+  letter-spacing: .1em;
+  text-align: center;
+  margin: 12px 0;
+}
+.vestimenta-icons {
+  font-size: 48px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 16px 0;
+}
+.regalo-card {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(173,210,230,0.2);
+  border: 1.5px solid rgba(74,127,165,0.2);
+  border-radius: 16px;
+  padding: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #2c4a6e;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Glitter sparkles en slides blancos */
+.glitter-dot {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(74,127,165,0.5);
+  pointer-events: none;
+}
+.star-deco {
+  position: absolute;
+  color: rgba(74,127,165,0.25);
+  font-size: 18px;
+  pointer-events: none;
+  animation: partyFloat var(--dur,8s) ease-in-out infinite;
+  animation-delay: var(--delay,0s);
+}
 </style>
 </head>
 <body>
@@ -1919,6 +2189,9 @@ body::before{
   <div class="dot" data-go="2">🪩</div>
   <div class="dot" data-go="3">🪩</div>
   <div class="dot" data-go="4">🪩</div>
+  <div class="dot" data-go="5">🪩</div>
+  <div class="dot" data-go="6">🪩</div>
+  <div class="dot" data-go="7">🪩</div>
 </div>
 
 <button class="nav-arrow prev" id="prev">‹</button>
@@ -1927,159 +2200,233 @@ body::before{
 <div class="deck">
   <div class="slides" id="slides">
 
-    <!-- ============ SLIDE 1: PORTADA ============ -->
+    <!-- SLIDE 1: PORTADA -->
     <section class="slide cover" data-screen-label="01 Portada">
       <div class="cover-bg">
         <div class="cover-photo-wrap"><img src="fotos/w01.jpeg" alt="Antonia" /></div>
       </div>
-      <div class="disco-rays">
-        <div class="disco-ray" style="transform:rotate(0deg) translateX(-50%)"></div>
-        <div class="disco-ray" style="transform:rotate(45deg) translateX(-50%);background:linear-gradient(to bottom,rgba(100,160,200,.5),transparent)"></div>
-        <div class="disco-ray" style="transform:rotate(90deg) translateX(-50%);background:linear-gradient(to bottom,rgba(74,127,165,.5),transparent)"></div>
-        <div class="disco-ray" style="transform:rotate(135deg) translateX(-50%)"></div>
-        <div class="disco-ray" style="transform:rotate(180deg) translateX(-50%);background:linear-gradient(to bottom,rgba(100,160,200,.5),transparent)"></div>
-        <div class="disco-ray" style="transform:rotate(225deg) translateX(-50%)"></div>
-        <div class="disco-ray" style="transform:rotate(270deg) translateX(-50%);background:linear-gradient(to bottom,rgba(74,127,165,.5),transparent)"></div>
-        <div class="disco-ray" style="transform:rotate(315deg) translateX(-50%)"></div>
-      </div>
       <div class="frame"></div>
       <div class="disco">🪩</div>
+      <span class="star-deco" style="top:8%;left:8%;--dur:7s;--delay:0s">✦</span>
+      <span class="star-deco" style="top:12%;right:10%;--dur:9s;--delay:1s">✦</span>
+      <span class="star-deco" style="bottom:15%;left:12%;--dur:8s;--delay:2s">✦</span>
+      <span class="star-deco" style="bottom:10%;right:8%;--dur:6s;--delay:.5s">✦</span>
 
       <div class="slide-inner cover-content">
         <div class="eyebrow">— Estás invitada —</div>
-
         <div class="quince">Mis</div>
         <h1>XV</h1>
         <div class="quince">años</div>
-
-        <div class="invita">presenta</div>
+        <div class="invita">con amor,</div>
         <div class="nombre">Antonia&nbsp;Nates</div>
+      </div>
+    </section>
 
-        <div class="countdown" id="countdown" style="margin-top:16px">
-          <div class="cd-box"><div class="cd-num" id="cd-d">00</div><div class="cd-label">Días</div></div>
-          <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Horas</div></div>
-          <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Min</div></div>
-          <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Seg</div></div>
+    <!-- SLIDE 2: COUNTDOWN + FECHA -->
+    <section class="slide" data-screen-label="02 Countdown">
+      <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
+      <span class="star-deco" style="top:8%;right:8%;--dur:6s;--delay:1.2s">✦</span>
+      <span class="star-deco" style="bottom:8%;left:6%;--dur:9s;--delay:.4s">✦</span>
+      <span class="star-deco" style="bottom:6%;right:5%;--dur:7s;--delay:2s">✦</span>
+      <div class="slide-inner">
+        <div class="slide-title">¡Tan solo faltan!</div>
+        <div class="slide-subtitle">para este día tan especial</div>
+
+        <div class="countdown-slide-date">Sábado · 27 de Junio · 2026</div>
+
+        <div class="countdown-slide-display">
+          <span id="cd-d2">47</span>
+          <span class="sep">:</span>
+          <span id="cd-h2">00</span>
+          <span class="sep">:</span>
+          <span id="cd-m2">00</span>
+          <span class="sep">:</span>
+          <span id="cd-s2">00</span>
+        </div>
+        <div class="countdown-slide-labels">
+          <span>Días</span>
+          <span>Horas</span>
+          <span>Min</span>
+          <span>Seg</span>
+        </div>
+
+        <div style="margin-top:32px;width:100%;max-width:360px">
+          <div style="display:flex;justify-content:space-around;font-family:'Fraunces',serif;color:#2c4a6e;">
+            <div style="text-align:center">
+              <div style="font-size:13px;letter-spacing:.1em;color:rgba(74,127,165,.7);font-family:'JetBrains Mono',monospace;text-transform:uppercase">Día</div>
+              <div style="font-size:48px;font-weight:300;line-height:1">27</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:rgba(74,127,165,.7)">SÁBADO</div>
+            </div>
+            <div style="width:1px;background:rgba(74,127,165,.2);margin:8px 0"></div>
+            <div style="text-align:center">
+              <div style="font-size:13px;letter-spacing:.1em;color:rgba(74,127,165,.7);font-family:'JetBrains Mono',monospace;text-transform:uppercase">Hora</div>
+              <div style="font-size:48px;font-weight:300;line-height:1">20</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:rgba(74,127,165,.7)">HORAS</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:12px;font-family:'Great Vibes',cursive;font-size:22px;color:#4a7fa5">Junio 2026</div>
         </div>
       </div>
     </section>
 
-    <!-- ============ SLIDE 2: MENSAJE ============ -->
-    <section class="slide message" data-screen-label="02 Mensaje">
-      <div class="deco-photo" style="top:8%;left:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(-9deg)"><img src="fotos/w02.jpeg" alt=""/></div>
-      <div class="deco-photo" style="top:12%;right:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(7deg)"><img src="fotos/w05.jpeg" alt=""/></div>
-      <div class="deco-photo" style="bottom:12%;left:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(6deg)"><img src="fotos/w08.jpeg" alt=""/></div>
-      <div class="deco-photo" style="bottom:8%;right:2%;width:clamp(90px,18vw,160px);height:clamp(116px,23vw,208px);transform:rotate(-8deg)"><img src="fotos/w11.jpeg" alt=""/></div>
-      <div class="slide-inner" style="justify-content:center;align-items:center;text-align:center">
-        <div class="msg-deco">
-          <div class="msg-line"></div>
-          <div class="msg-mark">· ✦ ·</div>
-          <div class="msg-line"></div>
+    <!-- SLIDE 3: MÚSICA + MENSAJE -->
+    <section class="slide" data-screen-label="03 Musica">
+      <span class="star-deco" style="top:5%;right:5%;--dur:8s;--delay:0s">✦</span>
+      <span class="star-deco" style="bottom:8%;left:5%;--dur:7s;--delay:1s">✦</span>
+      <div class="slide-inner">
+        <div class="slide-subtitle">🎵 presiona play para escuchar</div>
+        <div class="slide-title">La Canción</div>
+
+        <div class="music-player-box">
+          <div class="song-title">The Potter Waltz</div>
+          <div class="song-artist">HARRY POTTER · GOBLET OF FIRE</div>
+          <div class="music-bar"><div class="music-bar-fill"></div></div>
+          <div class="music-controls">
+            <button class="music-ctrl-btn">⏮</button>
+            <button class="music-play-btn" id="music-btn2">
+              <span id="music-icon2">▶</span>
+            </button>
+            <button class="music-ctrl-btn">⏭</button>
+          </div>
         </div>
-        <div class="eyebrow" style="margin-bottom:20px">— Una carta para ti —</div>
-        <p class="msg-body">
-          Hay momentos en la vida que merecen ser celebrados
-          <em>en grande</em>, y los quince son uno de ellos.
-        </p>
-        <p class="msg-body" style="margin-top:14px">
-          Quiero que estés ahí,
-          <span class="msg-accent">brillando conmigo</span>,
-          haciendo de esta noche un recuerdo que jamás vamos a olvidar.
-        </p>
-        <p class="msg-body" style="margin-top:14px">
-          Trae tus mejores zapatos para bailar,
-          tus risas más ruidosas y todo el amor que te quepa
-          — yo pongo el resto.
-        </p>
-        <div class="msg-sign">
+
+        <div class="msg-card">
+          "La vida se mide en momentos como este,<br/>
+          y quiero que seas parte de mi historia.<br/>
+          Te espero para celebrar juntos<br/>
+          <strong style="font-style:normal;color:#4a7fa5">mi fiesta de quinceañera.</strong>"
+        </div>
+
+        <div class="msg-sign" style="margin-top:8px">
           <span class="msg-with">con amor,</span>
           <span class="msg-name">Antonia</span>
         </div>
       </div>
     </section>
 
-    <!-- ============ SLIDE 3: DETALLES ============ -->
-    <section class="slide detail" data-screen-label="03 Detalles">
-      <div class="deco-photo" style="top:6%;right:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(8deg)"><img src="fotos/w03.jpeg" alt=""/></div>
-      <div class="deco-photo" style="bottom:12%;left:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(-7deg)"><img src="fotos/w14.jpeg" alt=""/></div>
+    <!-- SLIDE 4: PADRES Y PADRINOS -->
+    <section class="slide" data-screen-label="04 Familia">
+      <span class="star-deco" style="top:6%;left:6%;--dur:9s;--delay:.3s">✦</span>
+      <span class="star-deco" style="top:6%;right:6%;--dur:7s;--delay:1.5s">✦</span>
+      <span class="star-deco" style="bottom:6%;left:6%;--dur:8s;--delay:.8s">✦</span>
+      <span class="star-deco" style="bottom:6%;right:6%;--dur:6s;--delay:2.1s">✦</span>
       <div class="slide-inner">
-        <svg class="court-line" viewBox="0 0 300 4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <line x1="0" y1="2" x2="300" y2="2" stroke="var(--pink)" stroke-width="1.5"
-            stroke-dasharray="300" stroke-dashoffset="300" class="court-line-path"/>
-        </svg>
-        <div class="head">
-          <div class="eyebrow">— Los detalles —</div>
-          <h3>Apunta esto</h3>
+        <div class="slide-title">Quinceañera</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;color:#2c4a6e;text-transform:uppercase;margin-bottom:24px">Antonia Nates</div>
+
+        <div class="familia-divider"></div>
+
+        <div class="familia-section">
+          <div class="familia-title">Mis Padres</div>
+          <div class="familia-names">
+            César Nates<br/>
+            <span style="color:rgba(74,127,165,.6);font-size:13px">y</span><br/>
+            Bibiana Ramos
+          </div>
         </div>
 
-        <div class="detail-list">
-          <div class="detail-item">
-            <div class="detail-icon">01</div>
-            <div class="detail-text">
-              <div class="detail-label">Cuándo</div>
-              <div class="detail-value">Sábado 15 · Agosto</div>
-              <div class="detail-sub">8:00 PM en punto</div>
-            </div>
-          </div>
+        <div style="font-family:'Fraunces',serif;font-size:13px;color:rgba(74,127,165,.7);letter-spacing:.05em;margin:4px 0">me acompañan en este gran día,<br/>junto a</div>
 
-          <div class="detail-item">
-            <div class="detail-icon">02</div>
-            <div class="detail-text">
-              <div class="detail-label">Dónde</div>
-              <div class="detail-value">Salón Kandinsky</div>
-              <div class="detail-sub">Cra. 11 #93-45, Bogotá</div>
-            </div>
-          </div>
+        <div class="familia-divider"></div>
 
-          <div class="detail-item">
-            <div class="detail-icon">03</div>
-            <div class="detail-text">
-              <div class="detail-label">Dress code</div>
-              <div class="detail-value">Glam Holográfico ✨</div>
-              <div class="dresscode-chips">
-                <span class="dresscode-chip ok" title="¡Sí!">✅ Brillo</span>
-                <span class="dresscode-chip ok" title="¡Sí!">✅ Metálicos</span>
-                <span class="dresscode-chip ok" title="¡Sí!">✅ Rosa</span>
-                <span class="dresscode-chip ok" title="¡Sí!">✅ Dorado</span>
-              </div>
-              <div class="dresscode-no-label">🚫 Prohibido usar:</div>
-              <div class="dresscode-forbidden" id="dresscode-forbidden">
-                <span class="forbidden-color" data-color="#ffffff" data-name="Blanco">
-                  <span class="color-swatch" style="background:#ffffff"></span>Blanco
-                </span>
-                <span class="forbidden-color" data-color="#000000" data-name="Negro total">
-                  <span class="color-swatch" style="background:#1a1a1a"></span>Negro
-                </span>
-                <span class="forbidden-color" data-color="#ff0000" data-name="Rojo fuerte">
-                  <span class="color-swatch" style="background:#ff0000"></span>Rojo
-                </span>
-                <span class="forbidden-color" data-color="#808080" data-name="Gris">
-                  <span class="color-swatch" style="background:#808080"></span>Gris
-                </span>
-              </div>
-              <div id="color-alert" class="color-alert"></div>
-            </div>
+        <div class="familia-section">
+          <div class="familia-title">Mis Padrinos</div>
+          <div class="familia-names">
+            Rodolfo Nates<br/>
+            <span style="color:rgba(74,127,165,.6);font-size:13px">y</span><br/>
+            Martha Socha
           </div>
+        </div>
 
-          <div class="detail-item">
-            <div class="detail-icon">04</div>
-            <div class="detail-text">
-              <div class="detail-label">Plan</div>
-              <div class="detail-value">Cena · Vals · Pista</div>
-              <div class="detail-sub">Hasta que el DJ se canse</div>
-            </div>
-          </div>
+        <div class="familia-divider"></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:rgba(74,127,165,.7);text-align:center">quienes han decidido ser parte de<br/>esta nueva etapa en mi vida.</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: UBICACIÓN -->
+    <section class="slide" data-screen-label="05 Ubicacion">
+      <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
+      <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1s">✦</span>
+      <span class="star-deco" style="bottom:5%;right:5%;--dur:9s;--delay:.5s">✦</span>
+      <div class="slide-inner">
+        <div class="slide-title">Recepción</div>
+        <div class="slide-subtitle">todos los detalles</div>
+
+        <div class="ubicacion-card">
+          <div class="ubicacion-icon">📅</div>
+          <div class="ubicacion-label">Fecha</div>
+          <div class="ubicacion-value">Sábado 27 de Junio · 2026</div>
+          <div class="ubicacion-sub">8:00 PM en punto</div>
+        </div>
+
+        <div class="ubicacion-card">
+          <div class="ubicacion-icon">📍</div>
+          <div class="ubicacion-label">Lugar</div>
+          <div class="ubicacion-value">Salón Kandinsky</div>
+          <div class="ubicacion-sub">Cra. 11 #93-45, Bogotá</div>
+          <a href="https://maps.google.com/?q=Salon+Kandinsky+Bogota" target="_blank" class="ubicacion-btn">Ver ubicación</a>
+        </div>
+
+        <div class="ubicacion-card">
+          <div class="ubicacion-icon">🎊</div>
+          <div class="ubicacion-label">Plan</div>
+          <div class="ubicacion-value">Cena · Vals · Pista</div>
+          <div class="ubicacion-sub">Hasta que el DJ se canse</div>
         </div>
       </div>
     </section>
 
-    <!-- ============ SLIDE 4: SUBIR FOTOS ============ -->
-    <section class="slide photos" data-screen-label="04 Fotos">
-      <div class="deco-photo" style="top:5%;left:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(-8deg)"><img src="fotos/w06.jpeg" alt=""/></div>
-      <div class="deco-photo" style="top:5%;right:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(8deg)"><img src="fotos/w15.jpeg" alt=""/></div>
+    <!-- SLIDE 6: CÓDIGO DE VESTIMENTA -->
+    <section class="slide" data-screen-label="06 Vestimenta">
+      <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
+      <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1.3s">✦</span>
+      <span class="star-deco" style="bottom:8%;left:8%;--dur:9s;--delay:.6s">✦</span>
+      <span class="star-deco" style="bottom:8%;right:8%;--dur:6s;--delay:1.8s">✦</span>
       <div class="slide-inner">
-        <p class="eyebrow">📸 Comparte un recuerdo</p>
-        <h2 class="section-title">Tu foto de<br/>Recuerdo con Anto</h2>
+        <div class="slide-title">Código de<br/>Vestimenta</div>
+
+        <div class="vestimenta-libre">LIBRE</div>
+        <div class="vestimenta-icons">👔👗</div>
+
+        <div class="regalo-card">
+          🎁<br/><br/>
+          No hay un regalo específico,<br/>
+          lo más valioso para mí<br/>
+          es <strong style="font-style:normal">tu presencia</strong> en este día tan especial.<br/><br/>
+          Pero si deseas tener un detalle conmigo,<br/>
+          que sea algo que nazca del corazón.<br/><br/>
+          <strong style="font-style:normal;color:#4a7fa5">¡Gracias!</strong>
+        </div>
+
+        <div style="margin-top:20px;width:100%;max-width:360px">
+          <div class="dresscode-no-label" style="text-align:center;margin-bottom:8px">🚫 Prohibido usar:</div>
+          <div class="dresscode-forbidden" id="dresscode-forbidden" style="justify-content:center">
+            <span class="forbidden-color" data-color="#ffffff" data-name="Blanco">
+              <span class="color-swatch" style="background:#ffffff;border:1px solid #ccc"></span>Blanco
+            </span>
+            <span class="forbidden-color" data-color="#000000" data-name="Negro total">
+              <span class="color-swatch" style="background:#1a1a1a"></span>Negro
+            </span>
+            <span class="forbidden-color" data-color="#ff0000" data-name="Rojo fuerte">
+              <span class="color-swatch" style="background:#ff0000"></span>Rojo
+            </span>
+            <span class="forbidden-color" data-color="#808080" data-name="Gris">
+              <span class="color-swatch" style="background:#808080"></span>Gris
+            </span>
+          </div>
+          <div id="color-alert" class="color-alert" style="text-align:center;margin-top:8px"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: FOTO DE RECUERDO -->
+    <section class="slide" data-screen-label="07 Fotos">
+      <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
+      <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1s">✦</span>
+      <div class="slide-inner">
+        <div class="slide-title">Tu foto de<br/>Recuerdo con Anto</div>
+        <div class="slide-subtitle">📸 comparte un momento especial</div>
+
         <div id="upload-zone" class="upload-zone">
           <input type="text" id="foto-nombre" placeholder="✦ escribe tu nombre ✦" maxlength="40" required />
           <label for="photo-input" class="upload-label">
@@ -2092,22 +2439,19 @@ body::before{
       </div>
     </section>
 
-    <!-- ============ SLIDE 5: RSVP ============ -->
-    <section class="slide rsvp" data-screen-label="05 RSVP">
-      <div class="deco-photo" style="top:6%;left:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(-7deg)"><img src="fotos/w09.jpeg" alt=""/></div>
-      <div class="deco-photo" style="top:8%;right:2%;width:clamp(85px,17vw,150px);height:clamp(110px,22vw,195px);transform:rotate(8deg)"><img src="fotos/w12.jpeg" alt=""/></div>
+    <!-- SLIDE 8: CONFIRMACIÓN DE ASISTENCIA -->
+    <section class="slide rsvp" data-screen-label="08 RSVP">
+      <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
+      <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1s">✦</span>
       <div class="slide-inner">
-        <div class="head">
-          <div class="eyebrow">— Confirma —</div>
-          <h3>¿Vienes?</h3>
-        </div>
+        <div class="slide-title">Confirmar<br/>Asistencia</div>
+        <div class="slide-subtitle">— te esperamos con amor —</div>
 
         <form class="form" id="rsvp-form">
           <div class="field">
             <label>Tu nombre</label>
             <input type="text" name="nombre" required placeholder="¿Cómo te llamas?" />
           </div>
-
           <div class="field-row">
             <div class="field">
               <label>Teléfono</label>
@@ -2121,21 +2465,19 @@ body::before{
               </div>
             </div>
           </div>
-
           <div class="field">
             <label>Canción que quieres bailar</label>
             <input type="text" name="cancion" placeholder="dale al DJ la pista..." />
           </div>
-
           <div class="field">
             <label>Mensaje para Antonia</label>
-            <textarea name="mensaje" placeholder="déjale algo bonito"></textarea>
+            <textarea name="mensaje" rows="3" placeholder="algo bonito para ella..."></textarea>
           </div>
-
           <button type="submit" class="btn-confirm" id="btn-confirm">
             Confirmar asistencia <span class="arrow">→</span>
           </button>
         </form>
+
         <div id="rsvp-ball" class="rsvp-ball"></div>
       </div>
     </section>
@@ -2245,6 +2587,31 @@ musicBtn.addEventListener('click', () => {
   }
 });
 
+/* Botón del player en slide 3 */
+const musicBtn2 = document.getElementById('music-btn2');
+const musicIcon2 = document.getElementById('music-icon2');
+if(musicBtn2) {
+  musicBtn2.addEventListener('click', () => {
+    if(musicPlaying){
+      bgAudio.pause();
+      musicPlaying = false;
+      musicBtn2.style.background = 'linear-gradient(135deg, #4a7fa5, #2c4a6e)';
+      if(musicIcon2) musicIcon2.textContent = '▶';
+      const musicIconTop = document.getElementById('music-icon');
+      if(musicIconTop) musicIconTop.textContent = '♪';
+      document.getElementById('music-btn')?.classList.remove('playing');
+    } else {
+      bgAudio.play().catch(()=>{});
+      musicPlaying = true;
+      musicBtn2.style.background = 'linear-gradient(135deg, #2c4a6e, #4a7fa5)';
+      if(musicIcon2) musicIcon2.textContent = '⏸';
+      const musicIconTop = document.getElementById('music-icon');
+      if(musicIconTop) musicIconTop.textContent = '♫';
+      document.getElementById('music-btn')?.classList.add('playing');
+    }
+  });
+}
+
 setTimeout(() => {
   if(!musicPlaying){
     musicHint.classList.add('hide');
@@ -2321,7 +2688,7 @@ const nextBtn = document.getElementById('next');
 const deckEl = document.querySelector('.deck');
 
 let currentSlide = 0;
-const totalSlides = 5;
+const totalSlides = 8;
 
 function goToSlide(n){
   currentSlide = Math.max(0, Math.min(totalSlides-1, n));
@@ -2464,6 +2831,14 @@ function updateCountdown(){
   setCdNum('cd-h', pad(h));
   setCdNum('cd-m', pad(m));
   setCdNum('cd-s', pad(s));
+  const el2d = document.getElementById('cd-d2');
+  const el2h = document.getElementById('cd-h2');
+  const el2m = document.getElementById('cd-m2');
+  const el2s = document.getElementById('cd-s2');
+  if(el2d) el2d.textContent = pad(d);
+  if(el2h) el2h.textContent = pad(h);
+  if(el2m) el2m.textContent = pad(m);
+  if(el2s) el2s.textContent = pad(s);
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
