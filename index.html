@@ -2463,12 +2463,15 @@ html { font-size: 18px; }
   pointer-events: none;
 }
 .dresscode-tabla::after {
-  content: '';
+  display: none;
+}
+.dresscode-cameo {
   position: absolute;
-  top: -32px; left: 50%; transform: translateX(-50%);
-  width: 60px; height: 60px;
-  background: url('imgdecoracion/1.png') center/contain no-repeat;
-  opacity: 0.55;
+  top: -36px; left: 50%; transform: translateX(-50%);
+  width: 64px; height: 64px;
+  object-fit: contain;
+  opacity: 0.7;
+  mix-blend-mode: multiply;
   pointer-events: none;
 }
 .dresscode-col {
@@ -2767,7 +2770,8 @@ html { font-size: 18px; }
         <div class="familia-divider"></div>
 
         <!-- Tabla damas / caballeros -->
-        <div class="dresscode-tabla" style="margin-top:36px">
+        <div class="dresscode-tabla" style="margin-top:36px;position:relative">
+          <img src="imgdecoracion/1.png" class="dresscode-cameo" alt=""/>
           <div class="dresscode-col">
             <div class="dresscode-col-title">Damas</div>
             <div class="dresscode-col-body">
