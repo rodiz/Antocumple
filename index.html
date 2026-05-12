@@ -2639,7 +2639,7 @@ html { font-size: 18px; }
           <h1>XV</h1>
           <div class="quince">años</div>
           <div class="invita">con amor,</div>
-          <div class="nombre">Antonia&nbsp;Nates</div>
+          <div class="nombre">Antonia&nbsp;Nates Ramos</div>
         </div>
 
         <div class="cover-side-photo" style="transform:rotate(5deg)">
@@ -2804,7 +2804,7 @@ html { font-size: 18px; }
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1s">✦</span>
       <span class="star-deco" style="bottom:5%;right:5%;--dur:9s;--delay:.5s">✦</span>
-      <div class="deco-photo" style="bottom:5%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-7deg)"><img src="fotos/p08.jpeg" alt="Anto uniforme"/></div>
+      <div class="deco-photo" style="bottom:5%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-7deg)"><img src="fotos/p06.jpeg" alt="Anto"/></div>
       <div class="deco-photo" style="bottom:5%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(6deg)"><img src="fotos/p05.jpeg" alt="Anto con mamá"/></div>
       <div class="slide-inner">
         <div class="slide-title">Minuto a Minuto</div>
@@ -3039,7 +3039,7 @@ html { font-size: 18px; }
   <span class="ring"></span>
   <span class="icon" id="music-icon">♪</span>
 </button>
-<div class="music-hint" id="music-hint">toca el icono de ♪ y escucha The Sleeping Beauty Waltz</div>
+<div class="music-hint" id="music-hint">Toca el icono de ♪ y escucha The Sleeping Beauty Waltz</div>
 
 <!-- Tweaks -->
 <button class="tweak-fab" id="tweak-fab" title="Tweaks" style="display:none">✦</button>
@@ -3372,6 +3372,21 @@ document.querySelectorAll('.forbidden-color').forEach(el => {
     el.style.transform = 'scale(1.1) rotate(-3deg)';
     setTimeout(() => el.style.transform = '', 300);
   });
+});
+
+/* ====== Lightbox (galería y álbum) ====== */
+const lightbox   = document.getElementById('lightbox');
+const lbImg      = document.getElementById('lb-img');
+const lbClose    = document.getElementById('lb-close');
+function openLightbox(src){ lbImg.src = src; lightbox.classList.add('show'); }
+function closeLightbox(){ lightbox.classList.remove('show'); lbImg.src=''; }
+if(lightbox){
+  lightbox.addEventListener('click', e => { if(e.target === lightbox || e.target === lbClose) closeLightbox(); });
+}
+/* Click en fotos del álbum */
+document.querySelector('.album-grid')?.addEventListener('click', e => {
+  const img = e.target.closest('.album-photo')?.querySelector('img');
+  if(img) openLightbox(img.src);
 });
 
 /* ====== Countdown ====== */
