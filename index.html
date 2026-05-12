@@ -202,52 +202,62 @@ body::before{
 /* Hint — hidden in scroll mode */
 .swipe-hint{
   position: fixed;
-  bottom: 28px;
+  bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 50;
+  z-index: 999;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   pointer-events: none;
-  animation: hintFade 3s ease forwards 1.5s;
-  opacity: 0;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(201,96,138,0.35);
+  border-radius: 99px;
+  padding: 10px 22px 14px;
+  box-shadow: 0 4px 20px rgba(139,34,82,0.18);
+  animation: hintPulse 2.5s ease-in-out infinite;
 }
-@keyframes hintFade {
-  0%   { opacity: 0; transform: translateX(-50%) translateY(8px); }
-  20%  { opacity: 1; transform: translateX(-50%) translateY(0); }
-  70%  { opacity: 1; transform: translateX(-50%) translateY(0); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(4px); }
+.swipe-hint.hide {
+  animation: hintOut 0.5s ease forwards;
+}
+@keyframes hintPulse {
+  0%,100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  50%      { opacity: 0.85; transform: translateX(-50%) translateY(-4px); }
+}
+@keyframes hintOut {
+  to { opacity: 0; transform: translateX(-50%) translateY(10px); }
 }
 .swipe-hint-text {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  color: rgba(139,34,82,0.7);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: .05em;
+  color: #8b2252;
   white-space: nowrap;
 }
 .swipe-hint-arrow {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
 }
 .swipe-hint-arrow span {
   display: block;
-  width: 12px;
-  height: 12px;
-  border-right: 2px solid rgba(201,96,138,0.8);
-  border-bottom: 2px solid rgba(201,96,138,0.8);
+  width: 16px;
+  height: 16px;
+  border-right: 2.5px solid #c9608a;
+  border-bottom: 2.5px solid #c9608a;
   transform: rotate(45deg);
   animation: arrowBounce 1s ease-in-out infinite;
 }
-.swipe-hint-arrow span:nth-child(2) { animation-delay: .15s; opacity: .6; }
-.swipe-hint-arrow span:nth-child(3) { animation-delay: .3s;  opacity: .35; }
+.swipe-hint-arrow span:nth-child(2) { animation-delay: .18s; opacity: .65; }
+.swipe-hint-arrow span:nth-child(3) { animation-delay: .36s; opacity: .35; }
 @keyframes arrowBounce {
   0%,100% { transform: rotate(45deg) translateY(0); }
-  50%      { transform: rotate(45deg) translateY(4px); }
+  50%      { transform: rotate(45deg) translateY(5px); }
 }
 
 /* ============ SLIDE 1: PORTADA ============ */
@@ -3117,6 +3127,21 @@ html { font-size: 18px; }
 
 
 <script>
+/* ====== Scroll hint — ocultar al primer scroll ====== */
+(function initScrollHint(){
+  const hint = document.getElementById('swipe-hint');
+  if(!hint) return;
+  const deck = document.querySelector('.deck');
+  function hideHint(){
+    hint.classList.add('hide');
+    setTimeout(()=>{ hint.style.display='none'; }, 500);
+    if(deck) deck.removeEventListener('scroll', hideHint);
+    document.removeEventListener('touchstart', hideHint);
+  }
+  if(deck) deck.addEventListener('scroll', hideHint, {passive:true, once:true});
+  document.addEventListener('touchstart', hideHint, {passive:true, once:true});
+})();
+
 /* ====== Splash screen ====== */
 (function initSplash() {
   const splash = document.getElementById('splash');
