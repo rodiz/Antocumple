@@ -2508,6 +2508,33 @@ html { font-size: 18px; }
   line-height: 1.4;
   margin-top: 4px;
 }
+/* ===== Álbum de recuerdos ===== */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+  padding: 8px 0 24px;
+}
+.album-photo {
+  aspect-ratio: 3/4;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 16px rgba(139,34,82,0.2), 0 1px 4px rgba(0,0,0,0.1);
+  transform: rotate(var(--r, 0deg));
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+  background: #f8f0f5;
+}
+.album-photo:active {
+  transform: rotate(0deg) scale(1.08);
+  z-index: 10;
+}
+.album-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
 </style>
 </head>
 <body>
@@ -2547,17 +2574,17 @@ html { font-size: 18px; }
       <!-- Fotos solo visibles en móvil, arriba del texto -->
       <div class="cover-photos-mobile" style="display:none">
         <div class="cover-side-photo" style="transform:rotate(-4deg)">
-          <img src="fotos/w01.jpeg" alt="Antonia" />
+          <img src="fotos/p03.jpeg" alt="Antonia" />
         </div>
         <div class="cover-side-photo" style="transform:rotate(4deg)">
-          <img src="fotos/w10.jpeg" alt="Antonia" />
+          <img src="fotos/p10.jpeg" alt="Antonia" />
         </div>
       </div>
 
       <div class="cover-layout">
         <!-- Fotos laterales solo en desktop -->
         <div class="cover-side-photo" style="transform:rotate(-5deg)">
-          <img src="fotos/w01.jpeg" alt="Antonia" />
+          <img src="fotos/p03.jpeg" alt="Antonia" />
         </div>
 
         <div class="slide-inner cover-content">
@@ -2570,7 +2597,7 @@ html { font-size: 18px; }
         </div>
 
         <div class="cover-side-photo" style="transform:rotate(5deg)">
-          <img src="fotos/w10.jpeg" alt="Antonia" />
+          <img src="fotos/p10.jpeg" alt="Antonia" />
         </div>
       </div>
     </section>
@@ -2583,8 +2610,8 @@ html { font-size: 18px; }
       <span class="star-deco" style="top:8%;right:8%;--dur:6s;--delay:1.2s">✦</span>
       <span class="star-deco" style="bottom:8%;left:6%;--dur:9s;--delay:.4s">✦</span>
       <span class="star-deco" style="bottom:6%;right:5%;--dur:7s;--delay:2s">✦</span>
-      <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-8deg)"><img src="fotos/w14.jpeg" alt="Anto bebé"/></div>
-      <div class="deco-photo" style="top:6%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(7deg)"><img src="fotos/w16.jpeg" alt="Anto pequeña"/></div>
+      <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-8deg)"><img src="fotos/p14.jpeg" alt="Anto bebé"/></div>
+      <div class="deco-photo" style="top:6%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(7deg)"><img src="fotos/p08.jpeg" alt="Anto pequeña"/></div>
       <div class="slide-inner">
         <div class="slide-title">¡Tan solo faltan!</div>
         <div class="slide-subtitle">para este día tan especial</div>
@@ -2636,8 +2663,8 @@ html { font-size: 18px; }
       <img src="imgdecoracion/2.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(230px,52vw,360px);--sr:6deg;animation-delay:5s"/>
       <span class="star-deco" style="top:5%;right:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="bottom:8%;left:5%;--dur:7s;--delay:1s">✦</span>
-      <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-7deg)"><img src="fotos/w01.jpeg" alt="Anto niña"/></div>
-      <div class="deco-photo" style="bottom:6%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(8deg)"><img src="fotos/w02.jpeg" alt="Anto helado"/></div>
+      <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-7deg)"><img src="fotos/p03.jpeg" alt="Anto niña"/></div>
+      <div class="deco-photo" style="bottom:6%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(8deg)"><img src="fotos/p09.jpeg" alt="Anto helado"/></div>
       <div class="slide-inner">
         <div class="slide-subtitle">🎵 presiona play para escuchar</div>
         <div class="slide-title">La Canción</div>
@@ -2675,8 +2702,8 @@ html { font-size: 18px; }
       <span class="star-deco" style="top:6%;right:6%;--dur:7s;--delay:1.5s">✦</span>
       <span class="star-deco" style="bottom:6%;left:6%;--dur:8s;--delay:.8s">✦</span>
       <span class="star-deco" style="bottom:6%;right:6%;--dur:6s;--delay:2.1s">✦</span>
-      <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-9deg)"><img src="fotos/w13.jpeg" alt="Anto bebé"/></div>
-      <div class="deco-photo" style="top:6%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(8deg)"><img src="fotos/w10.jpeg" alt="Anto peluches"/></div>
+      <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-9deg)"><img src="fotos/p02.jpeg" alt="Anto bebé"/></div>
+      <div class="deco-photo" style="top:6%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(8deg)"><img src="fotos/p10.jpeg" alt="Anto peluches"/></div>
       <div class="slide-inner">
         <div class="slide-title">Quinceañera</div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;color:#5a1a35;text-transform:uppercase;margin-bottom:24px">Antonia Nates</div>
@@ -2717,8 +2744,8 @@ html { font-size: 18px; }
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1s">✦</span>
       <span class="star-deco" style="bottom:5%;right:5%;--dur:9s;--delay:.5s">✦</span>
-      <div class="deco-photo" style="bottom:5%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-7deg)"><img src="fotos/w08.jpeg" alt="Anto uniforme"/></div>
-      <div class="deco-photo" style="bottom:5%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(6deg)"><img src="fotos/w05.jpeg" alt="Anto con mamá"/></div>
+      <div class="deco-photo" style="bottom:5%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-7deg)"><img src="fotos/p08.jpeg" alt="Anto uniforme"/></div>
+      <div class="deco-photo" style="bottom:5%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(6deg)"><img src="fotos/p05.jpeg" alt="Anto con mamá"/></div>
       <div class="slide-inner">
         <div class="slide-title">Minuto a Minuto</div>
         <div class="slide-subtitle">— la noche de Antonia —</div>
@@ -2761,8 +2788,8 @@ html { font-size: 18px; }
       <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1.3s">✦</span>
       <span class="star-deco" style="bottom:8%;left:8%;--dur:9s;--delay:.6s">✦</span>
       <span class="star-deco" style="bottom:8%;right:8%;--dur:6s;--delay:1.8s">✦</span>
-      <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-8deg)"><img src="fotos/w04.jpeg" alt="Anto familia"/></div>
-      <div class="deco-photo" style="top:6%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(7deg)"><img src="fotos/w03.jpeg" alt="Anto amiga"/></div>
+      <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-8deg)"><img src="fotos/p04.jpeg" alt="Anto familia"/></div>
+      <div class="deco-photo" style="top:6%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(7deg)"><img src="fotos/p01.jpeg" alt="Anto amiga"/></div>
       <div class="slide-inner">
         <div class="slide-title">Código de<br/>Vestimenta</div>
         <div class="slide-subtitle">— viste a la altura de la ocasión —</div>
@@ -2820,8 +2847,8 @@ html { font-size: 18px; }
       <img src="imgdecoracion/5.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(230px,52vw,360px);--sr:8deg;animation-delay:4s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1s">✦</span>
-      <div class="deco-photo" style="bottom:5%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-6deg)"><img src="fotos/w07.jpeg" alt="Anto"/></div>
-      <div class="deco-photo" style="bottom:5%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(7deg)"><img src="fotos/w09.jpeg" alt="Anto"/></div>
+      <div class="deco-photo" style="bottom:5%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-6deg)"><img src="fotos/p07.jpeg" alt="Anto"/></div>
+      <div class="deco-photo" style="bottom:5%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(7deg)"><img src="fotos/p12.jpeg" alt="Anto"/></div>
       <div class="slide-inner">
         <div class="slide-title">Tu foto de<br/>Recuerdo con Antonia</div>
         <div class="slide-subtitle">📸 comparte un momento especial</div>
@@ -2838,14 +2865,41 @@ html { font-size: 18px; }
       </div>
     </section>
 
-    <!-- SLIDE 8: CONFIRMACIÓN DE ASISTENCIA -->
-    <section class="slide rsvp" data-screen-label="08 RSVP">
+    <!-- SLIDE 8: ÁLBUM DE RECUERDOS -->
+    <section class="slide" data-screen-label="08 Album">
+      <img src="imgdecoracion/3.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(168px,39vw,259px);--sr:-6deg;animation-delay:1s"/>
+      <img src="imgdecoracion/5.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(154px,36vw,238px);--sr:7deg;animation-delay:3s"/>
+      <div class="slide-inner">
+        <div class="slide-title">Álbum de<br/>Recuerdos</div>
+        <div class="slide-subtitle">— creciendo junto a ti —</div>
+
+        <div class="album-grid">
+          <div class="album-photo" style="--r:-4deg"><img src="fotos/p02.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:3deg"><img src="fotos/p03.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-2deg"><img src="fotos/p08.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:5deg"><img src="fotos/p09.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-3deg"><img src="fotos/p10.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:4deg"><img src="fotos/p11.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-5deg"><img src="fotos/p01.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:2deg"><img src="fotos/p04.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-3deg"><img src="fotos/p05.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:6deg"><img src="fotos/p06.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-4deg"><img src="fotos/p07.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:3deg"><img src="fotos/p12.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-2deg"><img src="fotos/p13.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:5deg"><img src="fotos/p14.jpeg" alt=""/></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: CONFIRMACIÓN DE ASISTENCIA -->
+    <section class="slide rsvp" data-screen-label="09 RSVP">
       <img src="imgdecoracion/3.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(240px,55vw,380px);--sr:-7deg;animation-delay:1s"/>
       <img src="imgdecoracion/4.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(230px,52vw,360px);--sr:6deg;animation-delay:3s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
       <span class="star-deco" style="top:5%;right:5%;--dur:7s;--delay:1s">✦</span>
-      <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-8deg)"><img src="fotos/w11.jpeg" alt="Anto"/></div>
-      <div class="deco-photo" style="top:6%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(7deg)"><img src="fotos/w12.jpeg" alt="Anto"/></div>
+      <div class="deco-photo" style="top:6%;left:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(-8deg)"><img src="fotos/p11.jpeg" alt="Anto"/></div>
+      <div class="deco-photo" style="top:6%;right:2%;width:clamp(70px,15vw,110px);height:clamp(90px,19vw,140px);transform:rotate(7deg)"><img src="fotos/p13.jpeg" alt="Anto"/></div>
       <div class="slide-inner">
         <div class="slide-title">Confirmar<br/>Asistencia</div>
         <div class="slide-subtitle">— te esperamos con amor —</div>
@@ -3119,7 +3173,7 @@ const nextBtn = document.getElementById('next');
 const deckEl = document.querySelector('.deck');
 
 let currentSlide = 0;
-const totalSlides = 8;
+const totalSlides = 9;
 
 function goToSlide(n){
   currentSlide = Math.max(0, Math.min(totalSlides-1, n));
