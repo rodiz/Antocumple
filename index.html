@@ -2538,27 +2538,28 @@ html { font-size: 18px; }
   mix-blend-mode: multiply;
   pointer-events: none;
 }
-/* Separador floral entre slides */
+/* Separador SVG floral delgado */
 .slide-sep {
   position: absolute;
-  bottom: -2px; left: 0; right: 0;
-  width: 100%; height: 80px;
-  object-fit: cover;
-  object-position: top;
-  z-index: 6;
+  bottom: 0; left: 0; right: 0;
+  width: 100%; height: 48px;
+  z-index: 2;
   pointer-events: none;
-  opacity: 0.85;
+  overflow: hidden;
 }
 .slide-sep-top {
   position: absolute;
-  top: -2px; left: 0; right: 0;
-  width: 100%; height: 80px;
-  object-fit: cover;
-  object-position: bottom;
-  z-index: 6;
+  top: 0; left: 0; right: 0;
+  width: 100%; height: 48px;
+  z-index: 2;
   pointer-events: none;
-  opacity: 0.85;
+  overflow: hidden;
   transform: scaleY(-1);
+}
+.slide-sep svg,
+.slide-sep-top svg {
+  width: 100%; height: 100%;
+  display: block;
 }
 /* Maléfica flotante */
 .malefica-deco {
@@ -2607,7 +2608,7 @@ html { font-size: 18px; }
     <!-- SLIDE 1: PORTADA -->
     <section class="slide cover" data-screen-label="01 Portada">
       <img src="fondos/f3.jpeg" class="slide-bg"/>
-      <img src="fondos/f5.jpeg" class="slide-sep"/>
+      <div class="slide-sep"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="175" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><circle cx="225" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M120,20 Q130,12 140,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M260,20 Q270,12 280,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M80,20 Q90,15 100,20 Q110,25 120,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><path d="M280,20 Q290,15 300,20 Q310,25 320,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
       <img src="imgdecoracion/3.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(260px,58vw,400px);--sr:-6deg;animation-delay:0s"/>
       <img src="imgdecoracion/6.png" class="sb-deco" style="bottom:2%;left:-2%;width:clamp(230px,52vw,360px);--sr:8deg;animation-delay:3s"/>
       <div class="frame"></div>
@@ -2619,17 +2620,17 @@ html { font-size: 18px; }
       <!-- Fotos solo visibles en móvil, arriba del texto -->
       <div class="cover-photos-mobile" style="display:none">
         <div class="cover-side-photo" style="transform:rotate(-4deg)">
-          <img src="fotos/p03.jpeg" alt="Antonia" />
+          <img src="fotos/slide1pic.jpeg" alt="Antonia" />
         </div>
         <div class="cover-side-photo" style="transform:rotate(4deg)">
-          <img src="fotos/p10.jpeg" alt="Antonia" />
+          <img src="fotos/slide1pic2.jpeg" alt="Antonia" />
         </div>
       </div>
 
       <div class="cover-layout">
         <!-- Fotos laterales solo en desktop -->
         <div class="cover-side-photo" style="transform:rotate(-5deg)">
-          <img src="fotos/p03.jpeg" alt="Antonia" />
+          <img src="fotos/slide1pic.jpeg" alt="Antonia" />
         </div>
 
         <div class="slide-inner cover-content">
@@ -2642,7 +2643,7 @@ html { font-size: 18px; }
         </div>
 
         <div class="cover-side-photo" style="transform:rotate(5deg)">
-          <img src="fotos/p10.jpeg" alt="Antonia" />
+          <img src="fotos/slide1pic2.jpeg" alt="Antonia" />
         </div>
       </div>
     </section>
@@ -2650,8 +2651,8 @@ html { font-size: 18px; }
     <!-- SLIDE 2: COUNTDOWN + FECHA -->
     <section class="slide" data-screen-label="02 Countdown">
       <img src="fondos/f1.jpeg" class="slide-bg"/>
-      <img src="fondos/f5.jpeg" class="slide-sep-top"/>
-      <img src="fondos/f5.jpeg" class="slide-sep"/>
+      <div class="slide-sep-top"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg2" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg2)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
+      <div class="slide-sep"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="175" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><circle cx="225" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M120,20 Q130,12 140,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M260,20 Q270,12 280,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M80,20 Q90,15 100,20 Q110,25 120,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><path d="M280,20 Q290,15 300,20 Q310,25 320,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
       <img src="imgdecoracion/5.png" class="sb-deco" style="bottom:3%;right:-2%;width:clamp(260px,58vw,400px);--sr:-5deg;animation-delay:1s"/>
       <img src="imgdecoracion/4.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(230px,52vw,360px);--sr:7deg;animation-delay:4s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
@@ -2708,8 +2709,8 @@ html { font-size: 18px; }
     <!-- SLIDE 3: MÚSICA + MENSAJE -->
     <section class="slide" data-screen-label="03 Musica">
       <img src="fondos/f2.jpeg" class="slide-bg"/>
-      <img src="fondos/f5.jpeg" class="slide-sep-top"/>
-      <img src="fondos/f5.jpeg" class="slide-sep"/>
+      <div class="slide-sep-top"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg2" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg2)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
+      <div class="slide-sep"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="175" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><circle cx="225" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M120,20 Q130,12 140,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M260,20 Q270,12 280,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M80,20 Q90,15 100,20 Q110,25 120,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><path d="M280,20 Q290,15 300,20 Q310,25 320,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
       <img class="malefica-deco" src="imgdecoracion/malefica.jpeg" style="right:-5%;top:5%;width:clamp(130px,30vw,200px);--sr:8deg;animation-delay:2s;border-radius:12px"/>
       <img src="imgdecoracion/1.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(240px,55vw,380px);--sr:-8deg;animation-delay:2s"/>
       <img src="imgdecoracion/2.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(230px,52vw,360px);--sr:6deg;animation-delay:5s"/>
@@ -2749,8 +2750,8 @@ html { font-size: 18px; }
     <!-- SLIDE 4: PADRES Y PADRINOS -->
     <section class="slide" data-screen-label="04 Familia">
       <img src="fondos/f3.jpeg" class="slide-bg"/>
-      <img src="fondos/f5.jpeg" class="slide-sep-top"/>
-      <img src="fondos/f5.jpeg" class="slide-sep"/>
+      <div class="slide-sep-top"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg2" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg2)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
+      <div class="slide-sep"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="175" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><circle cx="225" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M120,20 Q130,12 140,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M260,20 Q270,12 280,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M80,20 Q90,15 100,20 Q110,25 120,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><path d="M280,20 Q290,15 300,20 Q310,25 320,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
       <img src="imgdecoracion/4.png" class="sb-deco" style="bottom:3%;right:-2%;width:clamp(260px,58vw,400px);--sr:-7deg;animation-delay:1s"/>
       <img src="imgdecoracion/6.png" class="sb-deco" style="bottom:2%;left:-2%;width:clamp(220px,50vw,340px);--sr:9deg;animation-delay:4s"/>
       <span class="star-deco" style="top:6%;left:6%;--dur:9s;--delay:.3s">✦</span>
@@ -2795,8 +2796,8 @@ html { font-size: 18px; }
     <!-- SLIDE 5: UBICACIÓN -->
     <section class="slide" data-screen-label="05 Ubicacion">
       <img src="fondos/f1.jpeg" class="slide-bg"/>
-      <img src="fondos/f5.jpeg" class="slide-sep-top"/>
-      <img src="fondos/f5.jpeg" class="slide-sep"/>
+      <div class="slide-sep-top"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg2" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg2)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
+      <div class="slide-sep"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="175" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><circle cx="225" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M120,20 Q130,12 140,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M260,20 Q270,12 280,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M80,20 Q90,15 100,20 Q110,25 120,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><path d="M280,20 Q290,15 300,20 Q310,25 320,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
       <img class="malefica-deco" src="imgdecoracion/malefica.jpeg" style="left:-5%;bottom:10%;width:clamp(120px,28vw,180px);--sr:-10deg;animation-delay:4s;border-radius:12px"/>
       <img src="imgdecoracion/5.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(260px,58vw,400px);--sr:-6deg;animation-delay:2s"/>
       <img src="imgdecoracion/3.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(230px,52vw,370px);--sr:8deg;animation-delay:0s"/>
@@ -2842,8 +2843,8 @@ html { font-size: 18px; }
     <!-- SLIDE 6: CÓDIGO DE VESTIMENTA -->
     <section class="slide" data-screen-label="06 Vestimenta">
       <img src="fondos/f4.jpeg" class="slide-bg"/>
-      <img src="fondos/f5.jpeg" class="slide-sep-top"/>
-      <img src="fondos/f5.jpeg" class="slide-sep"/>
+      <div class="slide-sep-top"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg2" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg2)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
+      <div class="slide-sep"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="175" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><circle cx="225" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M120,20 Q130,12 140,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M260,20 Q270,12 280,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M80,20 Q90,15 100,20 Q110,25 120,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><path d="M280,20 Q290,15 300,20 Q310,25 320,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
       <img src="imgdecoracion/1.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(240px,55vw,380px);--sr:-9deg;animation-delay:3s"/>
       <img src="imgdecoracion/2.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(230px,52vw,360px);--sr:7deg;animation-delay:1s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
@@ -2906,8 +2907,8 @@ html { font-size: 18px; }
     <!-- SLIDE 7: FOTO DE RECUERDO -->
     <section class="slide" data-screen-label="07 Fotos">
       <img src="fondos/f2.jpeg" class="slide-bg"/>
-      <img src="fondos/f5.jpeg" class="slide-sep-top"/>
-      <img src="fondos/f5.jpeg" class="slide-sep"/>
+      <div class="slide-sep-top"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg2" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg2)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
+      <div class="slide-sep"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="175" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><circle cx="225" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M120,20 Q130,12 140,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M260,20 Q270,12 280,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M80,20 Q90,15 100,20 Q110,25 120,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><path d="M280,20 Q290,15 300,20 Q310,25 320,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
       <img src="imgdecoracion/6.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(240px,55vw,380px);--sr:-5deg;animation-delay:2s"/>
       <img src="imgdecoracion/5.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(230px,52vw,360px);--sr:8deg;animation-delay:4s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
@@ -2933,8 +2934,8 @@ html { font-size: 18px; }
     <!-- SLIDE 8: ÁLBUM DE RECUERDOS -->
     <section class="slide" data-screen-label="08 Album">
       <img src="fondos/f3.jpeg" class="slide-bg"/>
-      <img src="fondos/f5.jpeg" class="slide-sep-top"/>
-      <img src="fondos/f5.jpeg" class="slide-sep"/>
+      <div class="slide-sep-top"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg2" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg2)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
+      <div class="slide-sep"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="175" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><circle cx="225" cy="20" r="1.8" fill="#c9608a" opacity="0.5"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M120,20 Q130,12 140,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M260,20 Q270,12 280,20" stroke="#e8a0b8" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M80,20 Q90,15 100,20 Q110,25 120,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><path d="M280,20 Q290,15 300,20 Q310,25 320,20" stroke="#c9608a" stroke-width="0.7" fill="none" opacity="0.4"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
       <img src="imgdecoracion/3.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(168px,39vw,259px);--sr:-6deg;animation-delay:1s"/>
       <img src="imgdecoracion/5.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(154px,36vw,238px);--sr:7deg;animation-delay:3s"/>
       <div class="slide-inner">
@@ -2942,20 +2943,20 @@ html { font-size: 18px; }
         <div class="slide-subtitle">— creciendo junto a ti —</div>
 
         <div class="album-grid">
-          <div class="album-photo" style="--r:-4deg"><img src="fotos/p02.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:3deg"><img src="fotos/p03.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:-2deg"><img src="fotos/p08.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:5deg"><img src="fotos/p09.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:-3deg"><img src="fotos/p10.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:4deg"><img src="fotos/p11.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:-5deg"><img src="fotos/p01.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:2deg"><img src="fotos/p04.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:-3deg"><img src="fotos/p05.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:6deg"><img src="fotos/p06.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:-4deg"><img src="fotos/p07.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:3deg"><img src="fotos/p12.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:-2deg"><img src="fotos/p13.jpeg" alt=""/></div>
-          <div class="album-photo" style="--r:5deg"><img src="fotos/p14.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-4deg"><img src="fotos/a01.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:3deg"><img src="fotos/a02.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-2deg"><img src="fotos/a03.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:5deg"><img src="fotos/a04.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-3deg"><img src="fotos/a05.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:4deg"><img src="fotos/a06.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-5deg"><img src="fotos/a07.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:2deg"><img src="fotos/a08.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-3deg"><img src="fotos/a09.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:6deg"><img src="fotos/a10.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-4deg"><img src="fotos/a11.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:3deg"><img src="fotos/a12.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:-2deg"><img src="fotos/w15.jpeg" alt=""/></div>
+          <div class="album-photo" style="--r:5deg"><img src="fotos/w16.jpeg" alt=""/></div>
         </div>
       </div>
     </section>
@@ -2963,7 +2964,7 @@ html { font-size: 18px; }
     <!-- SLIDE 9: CONFIRMACIÓN DE ASISTENCIA -->
     <section class="slide rsvp" data-screen-label="09 RSVP">
       <img src="fondos/f4.jpeg" class="slide-bg"/>
-      <img src="fondos/f5.jpeg" class="slide-sep-top"/>
+      <div class="slide-sep-top"><svg viewBox="0 0 400 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="sg2" x1="0%" x2="100%"><stop offset="0%" stop-color="#c9608a" stop-opacity="0"/><stop offset="20%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="50%" stop-color="#8b2252" stop-opacity="0.8"/><stop offset="80%" stop-color="#c9608a" stop-opacity="0.6"/><stop offset="100%" stop-color="#c9608a" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="20" x2="400" y2="20" stroke="url(#sg2)" stroke-width="1"/><circle cx="200" cy="20" r="4" fill="#c9608a" opacity="0.7"/><circle cx="190" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><circle cx="210" cy="20" r="2.5" fill="#e8a0b8" opacity="0.6"/><path d="M155,20 Q160,14 165,20 Q170,26 175,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><path d="M225,20 Q230,14 235,20 Q240,26 245,20" stroke="#c8a060" stroke-width="1" fill="none" opacity="0.6"/><circle cx="165" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/><circle cx="235" cy="20" r="1.5" fill="#c8a060" opacity="0.7"/></svg></div>
       <img src="imgdecoracion/3.png" class="sb-deco" style="bottom:4%;right:-2%;width:clamp(240px,55vw,380px);--sr:-7deg;animation-delay:1s"/>
       <img src="imgdecoracion/4.png" class="sb-deco" style="bottom:3%;left:-2%;width:clamp(230px,52vw,360px);--sr:6deg;animation-delay:3s"/>
       <span class="star-deco" style="top:5%;left:5%;--dur:8s;--delay:0s">✦</span>
